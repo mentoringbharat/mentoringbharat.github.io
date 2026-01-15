@@ -5,18 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mentoring Bharat - Global IIT-IIM Alumni Support Group</title>
     
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
     
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
-    <!-- Custom Config -->
     <script>
         tailwind.config = {
             theme: {
@@ -87,12 +83,10 @@
 </head>
 <body class="font-sans text-slate-700 bg-slate-50 antialiased selection:bg-saffron selection:text-white">
 
-    <!-- LEFT SIDEBAR DRAWER -->
     <div id="sidebar-overlay" class="fixed inset-0 bg-slate-900/50 z-[60] opacity-0 invisible sidebar-overlay backdrop-blur-sm" onclick="toggleSidebar()"></div>
     
     <aside id="sidebar-panel" class="fixed top-0 left-0 h-full w-80 bg-white z-[70] shadow-2xl transform -translate-x-full sidebar-panel overflow-y-auto">
         <div class="p-6">
-            <!-- Sidebar Header -->
             <div class="flex items-center justify-between mb-8">
                 <span class="font-serif font-bold text-xl text-slate-800">Menu</span>
                 <button onclick="toggleSidebar()" class="p-2 hover:bg-slate-100 rounded-full transition-colors">
@@ -100,19 +94,15 @@
                 </button>
             </div>
 
-            <!-- Sidebar Links -->
             <div class="space-y-2">
-                <!-- Simple Link -->
                 <a href="mentor.html" class="block px-4 py-3 text-slate-700 hover:bg-orange-50 hover:text-saffron rounded-lg font-medium transition-colors">
                     About Mentor
                 </a>
 
-                <!-- Simple Link -->
                 <a href="mentoring-ay-2023-2024.html" class="block px-4 py-3 text-slate-700 hover:bg-orange-50 hover:text-saffron rounded-lg font-medium transition-colors">
                     Mentoring AY 2023-2024
                 </a>
 
-                <!-- Dropdown 1 -->
                 <div>
                     <button onclick="toggleDropdown('menu-2425', this)" class="w-full flex items-center justify-between px-4 py-3 text-slate-700 hover:bg-orange-50 hover:text-saffron rounded-lg font-medium transition-colors group">
                         <span>Mentoring AY 2024-2025</span>
@@ -124,7 +114,6 @@
                     </div>
                 </div>
 
-                <!-- Dropdown 2 -->
                 <div>
                     <button onclick="toggleDropdown('menu-2526', this)" class="w-full flex items-center justify-between px-4 py-3 text-slate-700 hover:bg-orange-50 hover:text-saffron rounded-lg font-medium transition-colors group">
                         <span>Mentoring AY 2025-2026</span>
@@ -136,19 +125,16 @@
                     </div>
                 </div>
 
-                <!-- Simple Link -->
                 <a href="alumnireg.html" class="block px-4 py-3 text-slate-700 hover:bg-orange-50 hover:text-saffron rounded-lg font-medium transition-colors">
                     Register as Alumni
                 </a>
 
-                <!-- Simple Link -->
                 <a href="media.html" class="block px-4 py-3 text-slate-700 hover:bg-orange-50 hover:text-saffron rounded-lg font-medium transition-colors">
                     Media and Allies
                 </a>
             </div>
         </div>
         
-        <!-- Sidebar Footer -->
         <div class="absolute bottom-0 left-0 w-full p-6 border-t border-slate-100 bg-slate-50">
             <div class="flex items-center gap-3">
                 <div class="w-10 h-10 bg-white border border-slate-200 rounded-full flex items-center justify-center text-chakraBlue font-bold shadow-sm">M</div>
@@ -160,21 +146,17 @@
         </div>
     </aside>
 
-    <!-- Navigation -->
     <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 
-                <!-- Left Section: Sidebar Trigger + Logo -->
                 <div class="flex items-center gap-4">
                     <button onclick="toggleSidebar()" class="p-2 -ml-2 rounded-md text-slate-600 hover:text-chakraBlue hover:bg-blue-50 focus:outline-none transition-colors">
                         <i data-lucide="menu" class="w-6 h-6"></i>
                     </button>
 
-                    <!-- Logo -->
                     <div class="flex-shrink-0 flex items-center gap-2">
                         <div class="w-10 h-10 bg-gradient-to-br from-saffron via-white to-indiaGreen border border-slate-200 rounded-lg flex items-center justify-center shadow-md relative overflow-hidden">
-                            <!-- Mini Chakra in logo -->
                             <div class="absolute inset-0 flex items-center justify-center">
                                  <div class="w-6 h-6 border-2 border-chakraBlue rounded-full flex items-center justify-center">
                                     <div class="w-4 h-4 border border-chakraBlue rounded-full"></div>
@@ -186,18 +168,18 @@
                     </div>
                 </div>
 
-                <!-- Desktop Menu -->
-                <div class="hidden md:flex space-x-8 items-center">
-                    <a href="#about" class="text-sm font-medium text-slate-600 hover:text-saffron transition-colors">About</a>
+                <div class="hidden md:flex space-x-6 items-center">
+                    <a href="mentor.html" class="text-sm font-medium text-slate-600 hover:text-saffron transition-colors">About Mentor</a>
                     <a href="#intervention" class="text-sm font-medium text-slate-600 hover:text-saffron transition-colors">Intervention</a>
                     <a href="#team" class="text-sm font-medium text-slate-600 hover:text-saffron transition-colors">Leadership</a>
-                    <a href="media.html" class="text-sm font-medium text-slate-600 hover:text-saffron transition-colors">News</a>
+                    <a href="media.html" class="text-sm font-medium text-slate-600 hover:text-saffron transition-colors">Media & Allies</a>
+                    <a href="alumnireg.html" class="text-sm font-medium text-slate-600 hover:text-saffron transition-colors">Register as Alumni</a>
+                    
                     <a href="#contact" class="px-5 py-2.5 rounded-full bg-chakraBlue text-white text-sm font-medium hover:bg-blue-900 transition-all shadow-md hover:shadow-lg">
                         Get Involved
                     </a>
                 </div>
 
-                <!-- Right Mobile menu button -->
                 <div class="md:hidden flex items-center">
                     <button id="mobile-menu-btn" class="text-slate-600 hover:text-chakraBlue focus:outline-none">
                         <i data-lucide="more-vertical" class="w-6 h-6"></i>
@@ -206,24 +188,21 @@
             </div>
         </div>
 
-        <!-- Mobile Menu Panel (Right Side) -->
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full shadow-xl">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-orange-50 hover:text-saffron">About</a>
+                <a href="mentor.html" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-orange-50 hover:text-saffron">About Mentor</a>
                 <a href="#intervention" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-orange-50 hover:text-saffron">Intervention</a>
                 <a href="#team" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-orange-50 hover:text-saffron">Leadership</a>
-                <a href="media.html" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-orange-50 hover:text-saffron">News</a>
+                <a href="alumnireg.html" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-orange-50 hover:text-saffron">Register Alumni</a>
+                <a href="media.html" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-orange-50 hover:text-saffron">Media</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section with Indian Flag Theme -->
     <header class="relative pt-32 pb-24 overflow-hidden">
-        <!-- Tricolor Background Gradient -->
         <div class="absolute inset-0 bg-gradient-to-br from-saffron via-white to-indiaGreen opacity-90"></div>
         <div class="absolute inset-0 bg-white/30 backdrop-blur-[2px]"></div>
 
-        <!-- Decorative Spinning Chakra Background -->
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] opacity-[0.05] animate-spin-slow pointer-events-none">
             <svg viewBox="0 0 24 24" fill="none" stroke="#000080" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="12" cy="12" r="10"></circle>
@@ -252,7 +231,7 @@
                 A professional networking platform for marginalized communities from premier institutes. Bridging the gap through mentorship, advocacy, and community support.
             </p>
             <div class="flex flex-col sm:flex-row gap-4 animate-fade-in" style="animation-delay: 0.3s">
-                <a href="#about" class="px-8 py-3.5 rounded-full bg-chakraBlue text-white font-semibold hover:bg-blue-900 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">
+                <a href="mentor.html" class="px-8 py-3.5 rounded-full bg-chakraBlue text-white font-semibold hover:bg-blue-900 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">
                     Learn More
                 </a>
                 <a href="#intervention" class="px-8 py-3.5 rounded-full bg-white border border-chakraBlue/20 text-chakraBlue font-semibold hover:bg-blue-50 transition-all shadow-sm hover:shadow-md">
@@ -261,7 +240,6 @@
             </div>
         </div>
 
-        <!-- Stats Bar -->
         <div class="relative max-w-5xl mx-auto mt-16 px-4 z-10">
             <div class="grid grid-cols-2 md:grid-cols-3 gap-6 bg-white/80 backdrop-blur-md rounded-2xl p-6 border border-white/40 shadow-xl text-center">
                 <div class="p-2">
@@ -280,7 +258,6 @@
         </div>
     </header>
 
-    <!-- About Section -->
     <section id="about" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
@@ -338,7 +315,6 @@
         </div>
     </section>
 
-    <!-- Intervention Section -->
     <section id="intervention" class="py-20 bg-slate-50 relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center max-w-3xl mx-auto mb-16">
@@ -348,7 +324,6 @@
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Card 1 -->
                 <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-100 card-hover group">
                     <div class="w-14 h-14 rounded-xl bg-orange-50 flex items-center justify-center text-saffron mb-6 group-hover:bg-saffron group-hover:text-white transition-colors">
                         <i data-lucide="heart-handshake" class="w-7 h-7"></i>
@@ -359,7 +334,6 @@
                     </p>
                 </div>
 
-                <!-- Card 2 -->
                 <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-100 card-hover group">
                     <div class="w-14 h-14 rounded-xl bg-blue-50 flex items-center justify-center text-secondary mb-6 group-hover:bg-secondary group-hover:text-white transition-colors">
                         <i data-lucide="graduation-cap" class="w-7 h-7"></i>
@@ -370,7 +344,6 @@
                     </p>
                 </div>
 
-                <!-- Card 3 -->
                 <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-100 card-hover group">
                     <div class="w-14 h-14 rounded-xl bg-green-50 flex items-center justify-center text-indiaGreen mb-6 group-hover:bg-indiaGreen group-hover:text-white transition-colors">
                         <i data-lucide="compass" class="w-7 h-7"></i>
@@ -381,7 +354,6 @@
                     </p>
                 </div>
 
-                <!-- Card 4 -->
                 <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-100 card-hover group">
                     <div class="w-14 h-14 rounded-xl bg-purple-50 flex items-center justify-center text-purple-500 mb-6 group-hover:bg-purple-500 group-hover:text-white transition-colors">
                         <i data-lucide="briefcase" class="w-7 h-7"></i>
@@ -395,7 +367,6 @@
         </div>
     </section>
 
-    <!-- Leadership Section -->
     <section id="team" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
@@ -429,7 +400,6 @@
         </div>
     </section>
 
-    <!-- Media Section -->
     <section id="media" class="py-20 bg-slate-900 text-white relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-end mb-12">
@@ -441,7 +411,6 @@
             </div>
 
             <div class="grid md:grid-cols-2 gap-8">
-                <!-- News Item 1 -->
                 <a href="https://www.thehindu.com/news/cities/Delhi/desperate-for-support-scst-students-at-iits-reach-out-to-alumni-group-for-help/article67380445.ece" target="_blank" class="block group">
                     <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-all duration-300 h-full">
                         <div class="flex items-center justify-between mb-4">
@@ -457,7 +426,6 @@
                     </div>
                 </a>
 
-                <!-- News Item 2 -->
                 <a href="https://www.hindustantimes.com/opinion/not-just-guidelines-but-a-legal-framework-needed-to-prevent-rampant-caste-bias-on-campus-101693248735503.html" target="_blank" class="block group">
                     <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-all duration-300 h-full">
                         <div class="flex items-center justify-between mb-4">
@@ -476,7 +444,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer id="contact" class="bg-slate-950 text-slate-400 py-12 border-t border-slate-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-3 gap-8 mb-8">
@@ -492,9 +459,10 @@
                 <div>
                     <h5 class="text-white font-semibold mb-4">Quick Links</h5>
                     <ul class="space-y-2 text-sm">
-                        <li><a href="#about" class="hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="mentor.html" class="hover:text-white transition-colors">About Mentor</a></li>
                         <li><a href="#intervention" class="hover:text-white transition-colors">Our Interventions</a></li>
                         <li><a href="#team" class="hover:text-white transition-colors">Leadership</a></li>
+                        <li><a href="alumnireg.html" class="hover:text-white transition-colors">Register as Alumni</a></li>
                     </ul>
                 </div>
                 <div>
@@ -509,7 +477,6 @@
         </div>
     </footer>
 
-    <!-- Scripts -->
     <script>
         // Initialize Icons
         lucide.createIcons();
