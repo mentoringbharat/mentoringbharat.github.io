@@ -82,9 +82,9 @@
         .timeline-item::before {
             content: '';
             position: absolute;
-            left: -2px;
-            top: 0;
-            bottom: -40px;
+            left: 1.25rem;
+            top: 3rem;
+            bottom: -3rem;
             width: 2px;
             background-color: #e2e8f0;
         }
@@ -110,7 +110,7 @@
             <div class="space-y-2">
                 <a href="index.html#about" class="block px-4 py-3 text-slate-700 hover:bg-orange-50 hover:text-saffron rounded-lg font-medium transition-colors">About Us</a>
                 <a href="index.html#intervention" class="block px-4 py-3 text-slate-700 hover:bg-orange-50 hover:text-saffron rounded-lg font-medium transition-colors">Intervention</a>
-                <a href="placement.html" class="block px-4 py-3 text-slate-700 hover:bg-orange-50 hover:text-saffron rounded-lg font-medium transition-colors">Mentoring AY 2023-2024</a>
+                <a href="placement.html" class="block px-4 py-3 text-slate-700 hover:bg-orange-50 hover:text-saffron rounded-lg font-medium transition-colors">Placements 2023-24</a>
                 <a href="#" class="block px-4 py-3 bg-orange-50 text-saffron rounded-lg font-medium border border-orange-100">Mentors & Leaders</a>
                 <a href="register.html" class="block px-4 py-3 text-slate-700 hover:bg-orange-50 hover:text-saffron rounded-lg font-medium transition-colors">Join Program</a>
                 <a href="index.html#media" class="block px-4 py-3 text-slate-700 hover:bg-orange-50 hover:text-saffron rounded-lg font-medium transition-colors">Media</a>
@@ -180,34 +180,42 @@
                         Dheeraj Singh
                     </h1>
 
+                    <p class="text-lg text-slate-700 font-semibold mb-4">
+                        Consultant, Mentor | IITK | IIMC | ex-AMP Capital, EY, MSDF, CIFF | Prayas
+                    </p>
+
                     <div class="flex flex-wrap gap-3 mb-8">
+                        <span class="px-4 py-2 bg-white border border-slate-200 rounded-full text-sm font-semibold text-chakraBlue shadow-sm flex items-center gap-2">
+                            <i data-lucide="map-pin" class="w-4 h-4"></i>
+                            Delhi, India
+                        </span>
                         <span class="px-4 py-2 bg-white border border-slate-200 rounded-full text-sm font-semibold text-chakraBlue shadow-sm">IIT Kanpur</span>
                         <span class="px-4 py-2 bg-white border border-slate-200 rounded-full text-sm font-semibold text-chakraBlue shadow-sm">IIM Calcutta</span>
                     </div>
 
-                    <p class="text-xl text-slate-700 leading-relaxed mb-8 max-w-2xl">
-                        Visionary leader dedicated to supporting marginalized students and advocating for diversity and inclusion in higher education institutions across India and globally.
+                    <p class="text-lg text-slate-700 leading-relaxed mb-8 max-w-2xl">
+                        Visionary leader dedicated to supporting marginalized students and advocating for diversity and inclusion in higher education institutions across India and globally. Founded 'Global IIT-IIM Alumni Support Group' – a research-cum-advocacy think tank and global peer-based network of 1,000+ alumni.
                     </p>
 
                     <div class="flex flex-col sm:flex-row gap-4">
                         <a href="https://www.linkedin.com/in/dheeraj012/" target="_blank" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-chakraBlue hover:bg-blue-900 text-white font-semibold shadow-lg hover:shadow-xl transition-all group">
                             <i data-lucide="linkedin" class="w-5 h-5"></i>
-                            Connect on LinkedIn
+                            View LinkedIn Profile
                         </a>
                         <a href="mailto:contact@mentoringbharat.org" class="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-white border-2 border-chakraBlue text-chakraBlue font-semibold hover:bg-blue-50 shadow-sm transition-all">
                             <i data-lucide="mail" class="w-5 h-5"></i>
-                            Send Message
+                            Get In Touch
                         </a>
                     </div>
                 </div>
 
                 <!-- Right Profile Image -->
-                <div class="relative">
+                <div class="relative hidden md:block">
                     <div class="absolute inset-0 bg-gradient-to-br from-saffron via-slate-200 to-indiaGreen rounded-3xl transform -rotate-6 scale-105 opacity-40"></div>
                     <img src="https://raw.githubusercontent.com/mentoringbharat/mentoringbharat.github.io/main/unnamed.jpg" alt="Dheeraj Singh" class="relative w-full rounded-3xl shadow-2xl border-4 border-white object-cover aspect-square">
-                    <div class="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-sm rounded-2xl p-4 shadow-lg border border-white/40">
-                        <p class="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-1">Founder</p>
-                        <p class="text-lg font-bold text-slate-900">Mentoring Bharat Initiative</p>
+                    <div class="absolute bottom-6 left-6 right-6 bg-white/95 backdrop-blur-sm rounded-2xl p-4 shadow-lg border border-white/40">
+                        <p class="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-1">Founder Since</p>
+                        <p class="text-2xl font-bold text-slate-900">January 2023</p>
                     </div>
                 </div>
             </div>
@@ -216,18 +224,10 @@
 
     <!-- Main Content -->
     <div class="relative bg-white">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            
             <!-- Overview Section -->
             <section class="mb-20">
                 <div class="grid md:grid-cols-3 gap-8 mb-12">
                     <!-- Card 1 -->
-                    <div class="bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl p-6 border border-orange-200 card-hover">
-                        <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center text-saffron mb-4 shadow-sm">
-                            <i data-lucide="award" class="w-6 h-6"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-slate-900 mb-2">Leadership Role</h3>
-                        <p class="text-slate-600 text-sm">Founder & Lead Mentor of Mentoring Bharat - Global IIT-IIM Alumni Support Group</p>
-                    </div>
-
-                    <!-- Card 2 -->
-                    <div class="bg-gradient-to-br from-blue-50 to-blue-
+                    <div class="bg-gradient-to-br
