@@ -79,21 +79,6 @@
         .rotate-chevron {
             transform: rotate(180deg);
         }
-        
-        /* Scrollbar for company list */
-        .company-scroll::-webkit-scrollbar {
-            width: 6px;
-        }
-        .company-scroll::-webkit-scrollbar-track {
-            background: #f1f1f1; 
-        }
-        .company-scroll::-webkit-scrollbar-thumb {
-            background: #cbd5e1; 
-            border-radius: 3px;
-        }
-        .company-scroll::-webkit-scrollbar-thumb:hover {
-            background: #94a3b8; 
-        }
     </style>
 </head>
 <body class="font-sans text-slate-700 bg-slate-50 antialiased selection:bg-saffron selection:text-white">
@@ -260,27 +245,38 @@
                     <div class="grid sm:grid-cols-2 gap-4">
                         <div class="flex gap-3 p-4 rounded-xl bg-slate-50 border border-slate-100">
                             <i data-lucide="file-text" class="w-6 h-6 text-saffron flex-shrink-0"></i>
-                            <span class="text-sm font-medium text-slate-700">CV Preparation & Review</span>
+                            <div>
+                                <span class="block text-sm font-bold text-slate-800">CV Preparation</span>
+                                <span class="text-xs text-slate-500">Review & Personal Questions</span>
+                            </div>
                         </div>
                         <div class="flex gap-3 p-4 rounded-xl bg-slate-50 border border-slate-100">
                             <i data-lucide="users" class="w-6 h-6 text-secondary flex-shrink-0"></i>
-                            <span class="text-sm font-medium text-slate-700">Mock Interviews by Experts</span>
+                            <div>
+                                <span class="block text-sm font-bold text-slate-800">Mock Interviews</span>
+                                <span class="text-xs text-slate-500">By Industry Experts</span>
+                            </div>
                         </div>
                         <div class="flex gap-3 p-4 rounded-xl bg-slate-50 border border-slate-100">
                             <i data-lucide="mic" class="w-6 h-6 text-indiaGreen flex-shrink-0"></i>
-                            <span class="text-sm font-medium text-slate-700">Communication Skills</span>
+                            <div>
+                                <span class="block text-sm font-bold text-slate-800">Soft Skills</span>
+                                <span class="text-xs text-slate-500">Communication & Confidence</span>
+                            </div>
                         </div>
                         <div class="flex gap-3 p-4 rounded-xl bg-slate-50 border border-slate-100">
                             <i data-lucide="briefcase" class="w-6 h-6 text-purple-600 flex-shrink-0"></i>
-                            <span class="text-sm font-medium text-slate-700">Job Search & Negotiation</span>
-                        </div>
-                        <div class="flex gap-3 p-4 rounded-xl bg-slate-50 border border-slate-100">
-                            <i data-lucide="heart" class="w-6 h-6 text-red-500 flex-shrink-0"></i>
-                            <span class="text-sm font-medium text-slate-700">Personal & Confidence Building</span>
+                            <div>
+                                <span class="block text-sm font-bold text-slate-800">Job Search</span>
+                                <span class="text-xs text-slate-500">And Salary Negotiation</span>
+                            </div>
                         </div>
                         <div class="flex gap-3 p-4 rounded-xl bg-slate-50 border border-slate-100">
                             <i data-lucide="globe-2" class="w-6 h-6 text-chakraBlue flex-shrink-0"></i>
-                            <span class="text-sm font-medium text-slate-700">Access to Alumni Network</span>
+                            <div>
+                                <span class="block text-sm font-bold text-slate-800">Networking</span>
+                                <span class="text-xs text-slate-500">Access to Alumni Network</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -325,39 +321,19 @@
             <div class="text-center mb-12">
                 <span class="text-saffron font-bold tracking-wide uppercase text-sm">Success Metrics</span>
                 <h2 class="text-3xl font-serif font-bold text-slate-900 mt-2">Where Our Mentees Are Working</h2>
-                <p class="text-slate-500 mt-2">A representative list of companies hiring from our 2024 cohort</p>
+                <p class="text-slate-500 mt-2">Companies hiring from our 2024 cohort</p>
             </div>
 
             <!-- Company Cloud Grid -->
             <div class="bg-white rounded-3xl p-8 shadow-sm border border-slate-200">
                 <div class="flex flex-wrap gap-3 justify-center text-sm font-medium text-slate-600" id="company-container">
-                    <!-- Companies will be populated here via JS for cleaner HTML, but displaying some statically for example -->
-                    <span class="px-4 py-2 bg-slate-50 rounded-full border border-slate-100">Microsoft</span>
-                    <span class="px-4 py-2 bg-slate-50 rounded-full border border-slate-100">Accenture Japan</span>
-                    <span class="px-4 py-2 bg-slate-50 rounded-full border border-slate-100">Google</span>
-                    <span class="px-4 py-2 bg-slate-50 rounded-full border border-slate-100">Pine Labs</span>
-                    <span class="px-4 py-2 bg-slate-50 rounded-full border border-slate-100">EY</span>
-                    <span class="px-4 py-2 bg-slate-50 rounded-full border border-slate-100">Vedanta</span>
-                    <span class="px-4 py-2 bg-slate-50 rounded-full border border-slate-100">Bajaj Auto</span>
-                    <span class="px-4 py-2 bg-slate-50 rounded-full border border-slate-100">FICO</span>
-                    <span class="px-4 py-2 bg-slate-50 rounded-full border border-slate-100">Media.net</span>
-                    <span class="px-4 py-2 bg-slate-50 rounded-full border border-slate-100">HPCL</span>
-                    <span class="px-4 py-2 bg-slate-50 rounded-full border border-slate-100">Air India</span>
-                    <span class="px-4 py-2 bg-slate-50 rounded-full border border-slate-100">Taiwan Semiconductor</span>
-                    <span class="px-4 py-2 bg-slate-50 rounded-full border border-slate-100">BPCL</span>
-                    <span class="px-4 py-2 bg-slate-50 rounded-full border border-slate-100">Reliance</span>
-                    <span class="px-4 py-2 bg-slate-50 rounded-full border border-slate-100">NPCI</span>
-                    <span class="px-4 py-2 bg-slate-50 rounded-full border border-slate-100">Tata Elxsi</span>
-                    <span class="px-4 py-2 bg-slate-50 rounded-full border border-slate-100">Mercedes Benz</span>
-                    <span class="px-4 py-2 bg-slate-50 rounded-full border border-slate-100">L&T</span>
-                    <span class="px-4 py-2 bg-slate-50 rounded-full border border-slate-100">Deloitte</span>
-                    <span class="px-4 py-2 bg-slate-50 rounded-full border border-slate-100">IOCL</span>
-                    <span class="px-4 py-2 bg-slate-50 rounded-full border border-slate-100">Ola</span>
-                    <span class="px-4 py-2 bg-slate-50 rounded-full border border-slate-100">TCS Prime</span>
-                    <span class="px-4 py-2 bg-slate-50 rounded-full border border-slate-100">GAIL</span>
-                    <span class="px-4 py-2 bg-slate-50 rounded-full border border-slate-100">C-DOT</span>
-                    <span class="px-4 py-2 bg-slate-50 rounded-full border border-slate-100">HCL</span>
-                    <!-- ... Full list script below ... -->
+                    <!-- Populated by JS -->
+                </div>
+                
+                <div class="mt-8 text-center border-t border-slate-100 pt-6">
+                   <p class="text-xs text-slate-400">
+                       *Includes multiple placements in top firms like Reliance, BPCL, Air India, and NPCI.
+                   </p>
                 </div>
             </div>
         </div>
@@ -372,146 +348,10 @@
                 <div class="w-20 h-1 bg-chakraBlue mt-4 rounded-full"></div>
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Testimonial Card 1 -->
-                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 card-hover relative group">
-                    <i data-lucide="quote" class="w-8 h-8 text-saffron/20 absolute top-6 right-6 group-hover:text-saffron/40 transition-colors"></i>
-                    <p class="text-slate-600 text-sm italic mb-6 leading-relaxed">
-                        "Sir, I am one of the students from your mentorship program. I have followed your instructions from start... Yesterday I got placed in <span class="font-semibold text-slate-800">Digit insurance</span>. Again, very very thank you sir."
-                    </p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 bg-gradient-to-br from-blue-100 to-blue-200 rounded-full flex items-center justify-center text-blue-700 font-bold text-xs">IG</div>
-                        <div>
-                            <p class="text-sm font-bold text-slate-800">Student</p>
-                            <p class="text-xs text-slate-500">IIT Guwahati</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Testimonial Card 2 -->
-                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 card-hover relative group">
-                    <i data-lucide="quote" class="w-8 h-8 text-saffron/20 absolute top-6 right-6 group-hover:text-saffron/40 transition-colors"></i>
-                    <p class="text-slate-600 text-sm italic mb-6 leading-relaxed">
-                        "Sir, I got selected at <span class="font-semibold text-slate-800">NLC India Ltd</span> through GATE. I was from last few candidates... But your tips and podcasts helped me a lot to perform very well in the interview."
-                    </p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 bg-gradient-to-br from-blue-100 to-blue-200 rounded-full flex items-center justify-center text-blue-700 font-bold text-xs">IG</div>
-                        <div>
-                            <p class="text-sm font-bold text-slate-800">Student</p>
-                            <p class="text-xs text-slate-500">IIT Guwahati</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Testimonial Card 3 -->
-                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 card-hover relative group">
-                    <i data-lucide="quote" class="w-8 h-8 text-saffron/20 absolute top-6 right-6 group-hover:text-saffron/40 transition-colors"></i>
-                    <p class="text-slate-600 text-sm italic mb-6 leading-relaxed">
-                        "I have just got placed at <span class="font-semibold text-slate-800">AgroNxt</span>... I am really grateful to you for your initiation and efforts to give us such a detailed and effective guidance."
-                    </p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 bg-gradient-to-br from-green-100 to-green-200 rounded-full flex items-center justify-center text-green-700 font-bold text-xs">IK</div>
-                        <div>
-                            <p class="text-sm font-bold text-slate-800">Student</p>
-                            <p class="text-xs text-slate-500">IIT Kanpur</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Testimonial Card 4 -->
-                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 card-hover relative group">
-                    <i data-lucide="quote" class="w-8 h-8 text-saffron/20 absolute top-6 right-6 group-hover:text-saffron/40 transition-colors"></i>
-                    <p class="text-slate-600 text-sm italic mb-6 leading-relaxed">
-                        "Sir, I got selected in <span class="font-semibold text-slate-800">BPCL</span>. Thank you so much sir. Your Mentoring helped me a lot. I was hopeless due to phase 1 but your guidance helped to reach this goal."
-                    </p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 bg-gradient-to-br from-orange-100 to-orange-200 rounded-full flex items-center justify-center text-orange-700 font-bold text-xs">IB</div>
-                        <div>
-                            <p class="text-sm font-bold text-slate-800">Student</p>
-                            <p class="text-xs text-slate-500">IIT Bombay</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Testimonial Card 5 -->
-                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 card-hover relative group">
-                    <i data-lucide="quote" class="w-8 h-8 text-saffron/20 absolute top-6 right-6 group-hover:text-saffron/40 transition-colors"></i>
-                    <p class="text-slate-600 text-sm italic mb-6 leading-relaxed">
-                        "I've secured a job at <span class="font-semibold text-slate-800">Accenture India</span>... Your insights were instrumental in boosting my performance during interviews."
-                    </p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 bg-gradient-to-br from-red-100 to-red-200 rounded-full flex items-center justify-center text-red-700 font-bold text-xs">IP</div>
-                        <div>
-                            <p class="text-sm font-bold text-slate-800">Student</p>
-                            <p class="text-xs text-slate-500">IIT Patna</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Testimonial Card 6 -->
-                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 card-hover relative group">
-                    <i data-lucide="quote" class="w-8 h-8 text-saffron/20 absolute top-6 right-6 group-hover:text-saffron/40 transition-colors"></i>
-                    <p class="text-slate-600 text-sm italic mb-6 leading-relaxed">
-                        "Sir, I got selected in <span class="font-semibold text-slate-800">Reliance</span>! Thanks a lot! Your guidance helped me a lot throughout the interview! Without your help I might had not cracked it."
-                    </p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 bg-gradient-to-br from-green-100 to-green-200 rounded-full flex items-center justify-center text-green-700 font-bold text-xs">IK</div>
-                        <div>
-                            <p class="text-sm font-bold text-slate-800">Student</p>
-                            <p class="text-xs text-slate-500">IIT Kanpur</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Testimonial Card 7 -->
-                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 card-hover relative group">
-                    <i data-lucide="quote" class="w-8 h-8 text-saffron/20 absolute top-6 right-6 group-hover:text-saffron/40 transition-colors"></i>
-                    <p class="text-slate-600 text-sm italic mb-6 leading-relaxed">
-                        "Sir, I finally got placed in <span class="font-semibold text-slate-800">Pine Labs</span> today. I am thankful for all the support and guidance provided by you. This mentorship programme helped me a lot."
-                    </p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 bg-gradient-to-br from-orange-100 to-orange-200 rounded-full flex items-center justify-center text-orange-700 font-bold text-xs">IB</div>
-                        <div>
-                            <p class="text-sm font-bold text-slate-800">Student</p>
-                            <p class="text-xs text-slate-500">IIT Bombay</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Testimonial Card 8 -->
-                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 card-hover relative group">
-                    <i data-lucide="quote" class="w-8 h-8 text-saffron/20 absolute top-6 right-6 group-hover:text-saffron/40 transition-colors"></i>
-                    <p class="text-slate-600 text-sm italic mb-6 leading-relaxed">
-                        "I got placed in <span class="font-semibold text-slate-800">Tata Elxsi</span>... Your motivational messages on group helped me a lot to cope up till now, and now I am happy and satisfied."
-                    </p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 bg-gradient-to-br from-blue-100 to-blue-200 rounded-full flex items-center justify-center text-blue-700 font-bold text-xs">IG</div>
-                        <div>
-                            <p class="text-sm font-bold text-slate-800">Student</p>
-                            <p class="text-xs text-slate-500">IIT Guwahati</p>
-                        </div>
-                    </div>
-                </div>
-
-                 <!-- Testimonial Card 9 -->
-                 <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 card-hover relative group">
-                    <i data-lucide="quote" class="w-8 h-8 text-saffron/20 absolute top-6 right-6 group-hover:text-saffron/40 transition-colors"></i>
-                    <p class="text-slate-600 text-sm italic mb-6 leading-relaxed">
-                        "I got an offer from <span class="font-semibold text-slate-800">Air India</span>... Thank you so much for all your guidance, mock interview and feedback. Scenario was somewhat similar to what you discussed."
-                    </p>
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 bg-gradient-to-br from-purple-100 to-purple-200 rounded-full flex items-center justify-center text-purple-700 font-bold text-xs">ID</div>
-                        <div>
-                            <p class="text-sm font-bold text-slate-800">Student</p>
-                            <p class="text-xs text-slate-500">IIT Delhi</p>
-                        </div>
-                    </div>
-                </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="testimonials-grid">
+                <!-- Content Populated by JS for better management of large text -->
             </div>
             
-            <div class="mt-12 text-center">
-                <p class="text-slate-500 italic">...and many more success stories from IIT Madras, BHU, Hyderabad, Kharagpur, and Bhubaneswar.</p>
-            </div>
         </div>
     </section>
 
@@ -556,20 +396,24 @@
         // ----------------------------------------------------
         // COMPANY DATA POPULATION
         // ----------------------------------------------------
+        // Full list from the user prompt
         const companyList = [
-            "Microsoft", "Pine Labs", "Accenture Japan", "EY", "Vedanta", "Bajaj Auto", "FICO", "Media.net", "HPCL", "Axxela", 
-            "Air India data", "Edgeverve", "Axis Bank", "Taiwan Semiconductor", "Air India sde", "Amadeus", "EXL", "MIPS", 
-            "Monarch tractor", "BPCL", "IQVIA", "Hyperbots System", "Fujitsu", "CAMS", "Reliance", "NPCI", "ClearTax", 
-            "Capgrid", "Tata Elxsi", "Xion", "Asper.ai", "Jindal Oman", "Fuji Electric", "C-DOT", "Mercedes Benz", "L&T", 
-            "E-ring", "Dolat capital", "Greaves Cotton", "Indkal", "TVS motors", "Jindal Stainless", "Petronet", "SMFG", 
-            "Deloitte", "Uni Tri Tech", "Accenture", "Merilytics", "Motherson Group", "Apporchid", "IOCL", "Straive", "HCL", 
-            "Ola", "Jindal Shadeed Oman", "Tredence Analytics", "K12 Technology", "Digit insurance", "Angel Broking", 
-            "Exide Energy", "Cubastion Consulting", "Tata Autocomp", "Narayana", "TCS Prime", "KPIT Technologies", 
-            "AgroNxt", "CSRL", "Sandivk", "ANZ Bank", "CDAC", "SRF", "Netradyne", "GAIL", "Meril Life Sciences", "NLC", 
+            "Microsoft", "Pine Labs", "Accenture Japan", "EY", "Vedanta", "Bajaj Auto", "FICO", "Media.net", 
+            "HPCL", "Axxela", "Air India Data", "Edgeverve", "Axis Bank", "Taiwan Semiconductor", "Air India SDE", 
+            "Amadeus", "EXL", "MIPS", "Monarch Tractor SDE", "BPCL", "IQVIA", "Hyperbots System", "Fujitsu", 
+            "CAMS", "Reliance", "NPCI", "ClearTax", "Capgrid", "Tata Elxsi", "Xion", "Asper.ai", "Jindal Oman", 
+            "Fuji Electric", "C-DOT", "Mercedes Benz", "L&T", "E-ring", "Dolat Capital", "Greaves Cotton", "Indkal", 
+            "TVS Motors", "Jindal Stainless", "Petronet", "SMFG", "Deloitte", "Uni Tri Tech", "Accenture", 
+            "Merilytics", "Motherson Group", "Apporchid", "IOCL", "Straive", "HCL", "Ola", "Jindal Shadeed Oman", 
+            "Tredence Analytics", "K12 Technology", "Digit Insurance", "Angel Broking", "Exide Energy", 
+            "Cubastion Consulting", "Tata Autocomp", "Narayana", "TCS Prime", "KPIT Technologies", "AgroNxt", 
+            "CSRL", "Sandvik", "ANZ Bank", "CDAC", "SRF", "Netradyne", "GAIL", "Meril Life Sciences", "NLC", 
             "Techfour", "Arthmate", "Timble", "LetsBloom Pte", "ASEC", "Indxx", "Reliance Insurance"
         ];
 
-        // Remove duplicates and sort
+        // Ensure duplications (like multiple Reliance/BPCL/NPCI) are shown if desired, 
+        // or just show unique. For a "Cloud", unique is usually better to avoid clutter, 
+        // but showing counts could be cool. Let's do unique sorted for cleanliness.
         const uniqueCompanies = [...new Set(companyList)].sort();
 
         const container = document.getElementById('company-container');
@@ -577,8 +421,171 @@
             `<span class="px-4 py-2 bg-slate-50 hover:bg-white hover:shadow-md transition-all rounded-full border border-slate-200 text-slate-700 cursor-default">${company}</span>`
         ).join('');
 
+
         // ----------------------------------------------------
-        // SIDEBAR LOGIC
+        // TESTIMONIALS DATA
+        // ----------------------------------------------------
+        const testimonials = [
+            {
+                text: "Sir, I am one of the students from your mentorship program. I have followed your instructions from start... Yesterday I got placed in Digit insurance as a graduate engineer trainee.",
+                student: "IIT Guwahati Student",
+                company: "Digit Insurance",
+                color: "blue"
+            },
+            {
+                text: "Sir, I got selected at NLC India Ltd through GATE... your tips and podcasts helped me a lot to perform very well in the interview. Thank u so much for all ur support.",
+                student: "IIT Guwahati Student",
+                company: "NLC India",
+                color: "orange"
+            },
+            {
+                text: "I am really happy to tell you that I have just got placed at AgroNxt... I am really grateful to you for your initiation and efforts to give us such a detailed and effective guidance.",
+                student: "IIT Kanpur Student",
+                company: "AgroNxt",
+                color: "green"
+            },
+            {
+                text: "I wanted to inform you that I got an offer from Tredence Analytics for the role of data analyst. Thank you very much for the guidance and support.",
+                student: "IIT Madras Student",
+                company: "Tredence Analytics",
+                color: "purple"
+            },
+            {
+                text: "Sir, I got selected in BPCL. Thank you so much sir. Your Mentoring helped me a lot. I was hopeless due to phase 1 but your guidance helped to reach this goal.",
+                student: "IIT Bombay Student",
+                company: "BPCL",
+                color: "saffron"
+            },
+            {
+                text: "Sir, I'm happy to inform you that I got placed at Deloitte as a Consultant. Your efforts are much much appreciated. I would really like to be a helping hand.",
+                student: "IIT Madras Student",
+                company: "Deloitte",
+                color: "dark"
+            },
+            {
+                text: "I'm thrilled to share that I've secured a job at Accenture India for an Advance Application Engineering role. Your support made a significant difference.",
+                student: "IIT Patna Student",
+                company: "Accenture India",
+                color: "secondary"
+            },
+            {
+                text: "Thank you Sir for mentoring us and enlightening us... I got placed in SMFG.",
+                student: "IIT Kanpur Student",
+                company: "SMFG",
+                color: "orange"
+            },
+            {
+                text: "Sir, I got placed in Tata Autocomp... Spotify podcast was really helpful in the interview. Though my CTC was low but I think it’s a good start.",
+                student: "IIT Bhubaneswar Student",
+                company: "Tata Autocomp",
+                color: "blue"
+            },
+            {
+                text: "Sir, I got selected for C-DOT as a CSE research engineer profile... practiced mock interviews after 5 failure interviews i finally placed.",
+                student: "IIT Guwahati Student",
+                company: "C-DOT",
+                color: "green"
+            },
+             {
+                text: "Sir, I got offer from Reliance. Thank you so much sir... interviewers told me excellent whatever you delivered it's really good.",
+                student: "IIT BHU Student",
+                company: "Reliance",
+                color: "primary"
+            },
+             {
+                text: "I got placed in SWE role at LetsBloom Pte. Ltd... a full of inspiration to keep pushing myself even at day 8 after loosing all the hopes.",
+                student: "IIT Kharagpur Student",
+                company: "LetsBloom Pte",
+                color: "purple"
+            },
+             {
+                text: "Sir, I finally got placed in Pine Labs today... This mentorship programme helped me a lot to improve my communication skills.",
+                student: "IIT Bombay Student",
+                company: "Pine Labs",
+                color: "saffron"
+            },
+             {
+                text: "Sir, I got placed in Fuji Electric. Thanks for rebuking me for complaining too much😅, and also for your valuable feedbacks.",
+                student: "IIT Madras Student",
+                company: "Fuji Electric",
+                color: "red"
+            },
+             {
+                text: "Sir, I got placed in Bajaj Auto. Your answers to the HR questions and tips helped me a lot. Thank you very much sir.",
+                student: "IIT Guwahati Student",
+                company: "Bajaj Auto",
+                color: "blue"
+            },
+             {
+                text: "Thanks sir I got an offer In NPCI. Your contribution can't justified in words.",
+                student: "IIT Delhi Student",
+                company: "NPCI",
+                color: "green"
+            },
+             {
+                text: "Sir I unexpectedly got an interview the next day after we talked and got an offer as Software Developer in IQVIA! I was about to give up.",
+                student: "IIT Madras Student",
+                company: "IQVIA",
+                color: "purple"
+            },
+             {
+                text: "Sir, Thank you so much for your selfless efforts... I just got placed in AirIndia sde",
+                student: "IIT Delhi Student",
+                company: "Air India",
+                color: "orange"
+            },
+             {
+                text: "Thank you so so so much for your help. I got placed in Accenture Japan.",
+                student: "IIT Kanpur Student",
+                company: "Accenture Japan",
+                color: "red"
+            },
+            {
+                text: "I have been recruited by Microsoft India in profile of software Engineer. Thanks a lot for your guidance!!",
+                student: "IIT Kanpur Student",
+                company: "Microsoft",
+                color: "secondary"
+            }
+        ];
+
+        // Function to get color class based on config
+        const getColorClass = (color) => {
+            const map = {
+                blue: 'from-blue-100 to-blue-200 text-blue-700',
+                orange: 'from-orange-100 to-orange-200 text-orange-700',
+                green: 'from-green-100 to-green-200 text-green-700',
+                purple: 'from-purple-100 to-purple-200 text-purple-700',
+                saffron: 'from-orange-200 to-orange-300 text-orange-800', // Saffron sim
+                secondary: 'from-blue-200 to-blue-300 text-blue-800',
+                red: 'from-red-100 to-red-200 text-red-700',
+                primary: 'from-indigo-100 to-indigo-200 text-indigo-700',
+                dark: 'from-gray-200 to-gray-300 text-gray-800'
+            };
+            return map[color] || map.blue;
+        };
+
+        const testimonialContainer = document.getElementById('testimonials-grid');
+        testimonialContainer.innerHTML = testimonials.map(t => `
+            <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 card-hover relative group flex flex-col h-full">
+                <i data-lucide="quote" class="w-8 h-8 text-saffron/20 absolute top-6 right-6 group-hover:text-saffron/40 transition-colors"></i>
+                <div class="mb-6 flex-grow">
+                    <p class="text-slate-600 text-sm italic leading-relaxed">"${t.text}"</p>
+                </div>
+                <div class="flex items-center gap-3 mt-auto pt-4 border-t border-slate-100/50">
+                    <div class="w-10 h-10 bg-gradient-to-br ${getColorClass(t.color)} rounded-full flex items-center justify-center font-bold text-xs shadow-sm">
+                        ${t.student.split(' ')[1].substring(0,2)}
+                    </div>
+                    <div>
+                        <p class="text-sm font-bold text-slate-800">${t.company}</p>
+                        <p class="text-xs text-slate-500">${t.student}</p>
+                    </div>
+                </div>
+            </div>
+        `).join('');
+
+
+        // ----------------------------------------------------
+        // SIDEBAR LOGIC (Preserved)
         // ----------------------------------------------------
         function toggleSidebar() {
             const sidebar = document.getElementById('sidebar-panel');
