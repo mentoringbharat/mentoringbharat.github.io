@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placement Mentoring 2023-24 - Mentoring Bharat</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Custom Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e3a8a', // Deep Blue
+                        secondary: '#3b82f6', // Bright Blue
+                        accent: '#f59e0b', // Amber
+                        dark: '#0f172a',
+                        light: '#f8fafc',
+                        // Indian Flag Colors
+                        saffron: '#FF9933',
+                        indiaGreen: '#138808',
+                        chakraBlue: '#000080',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    animation: {
+                        'spin-slow': 'spin 20s linear infinite',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Utilities */
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Sidebar Transition */
+        .sidebar-overlay {
+            transition: opacity 0.3s ease-in-out, visibility 0.3s;
+        }
+        .sidebar-panel {
+            transition: transform 0.3s ease-in-out;
+        }
+        .rotate-chevron {
+            transform: rotate(180deg);
+        }
+        
+        /* Scrollbar for company list */
+        .company-scroll::-webkit-scrollbar {
+            width: 6px;
+        }
+        .company-scroll::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+        }
+        .company-scroll::-webkit-scrollbar-thumb {
+            background: #cbd5e1; 
+            border-radius: 3px;
+        }
+        .company-scroll::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8; 
+        }
+    </style>
+</head>
+<body class="font-sans text-slate-700 bg-slate-50 antialiased selection:bg-saffron selection:text-white">
+
+    <!-- LEFT SIDEBAR DRAWER -->
+    <div id="sidebar-overlay" class="fixed inset-0 bg-slate-900/50 z-[60] opacity-0 invisible sidebar-overlay backdrop-blur-sm" onclick="toggleSidebar()"></div>
+    
+    <aside id="sidebar-panel" class="fixed top-0 left-0 h-full w-80 bg-white z-[70] shadow-2xl transform -translate-x-full sidebar-panel overflow-y-auto">
+        <div class="p-6">
+            <!-- Sidebar Header -->
+            <div class="flex items-center justify-between mb-8">
+                <span class="font-serif font-bold text-xl text-slate-800">Menu</span>
+                <button onclick="toggleSidebar()" class="p-2 hover:bg-slate-100 rounded-full transition-colors">
+                    <i data-lucide="x" class="w-6 h-6 text-slate-500"></i>
+                </button>
+            </div>
+
+            <!-- Sidebar Links -->
+            <div class="space-y-2">
+                <a href="index.html#about" class="block px-4 py-3 text-slate-700 hover:bg-orange-50 hover:text-saffron rounded-lg font-medium transition-colors">
+                    About Us
+                </a>
+
+                <a href="#" class="block px-4 py-3 bg-orange-50 text-saffron rounded-lg font-medium transition-colors border border-orange-100">
+                    Mentoring AY 2023-2024
+                </a>
+
+                <!-- Dropdown 1 -->
+                <div>
+                    <button onclick="toggleDropdown('menu-2425', this)" class="w-full flex items-center justify-between px-4 py-3 text-slate-700 hover:bg-orange-50 hover:text-saffron rounded-lg font-medium transition-colors group">
+                        <span>Mentoring AY 2024-2025</span>
+                        <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 group-hover:text-saffron transition-transform duration-200"></i>
+                    </button>
+                    <div id="menu-2425" class="hidden pl-4 space-y-1 mt-1">
+                        <a href="#" class="block px-4 py-2 text-sm text-slate-600 hover:text-chakraBlue">Schedule</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-slate-600 hover:text-chakraBlue">Mentors List</a>
+                    </div>
+                </div>
+
+                <!-- Dropdown 2 -->
+                <div>
+                    <button onclick="toggleDropdown('menu-2526', this)" class="w-full flex items-center justify-between px-4 py-3 text-slate-700 hover:bg-orange-50 hover:text-saffron rounded-lg font-medium transition-colors group">
+                        <span>Mentoring AY 2025-2026</span>
+                        <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 group-hover:text-saffron transition-transform duration-200"></i>
+                    </button>
+                    <div id="menu-2526" class="hidden pl-4 space-y-1 mt-1">
+                        <a href="#" class="block px-4 py-2 text-sm text-slate-600 hover:text-chakraBlue">Upcoming Events</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-slate-600 hover:text-chakraBlue">Registration</a>
+                    </div>
+                </div>
+
+                <a href="#" class="block px-4 py-3 text-slate-700 hover:bg-orange-50 hover:text-saffron rounded-lg font-medium transition-colors">
+                    Register as Alumni
+                </a>
+
+                <a href="index.html#media" class="block px-4 py-3 text-slate-700 hover:bg-orange-50 hover:text-saffron rounded-lg font-medium transition-colors">
+                    Media and Allies
+                </a>
+            </div>
+        </div>
+        
+        <!-- Sidebar Footer -->
+        <div class="absolute bottom-0 left-0 w-full p-6 border-t border-slate-100 bg-slate-50">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-white border border-slate-200 rounded-full flex items-center justify-center text-chakraBlue font-bold shadow-sm">M</div>
+                <div>
+                    <p class="text-sm font-bold text-slate-900">Mentoring Bharat</p>
+                    <p class="text-xs text-slate-500">Alumni Support Group</p>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                
+                <!-- Left Section: Sidebar Trigger + Logo -->
+                <div class="flex items-center gap-4">
+                    <button onclick="toggleSidebar()" class="p-2 -ml-2 rounded-md text-slate-600 hover:text-chakraBlue hover:bg-blue-50 focus:outline-none transition-colors">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+
+                    <a href="index.html" class="flex-shrink-0 flex items-center gap-2 group">
+                        <div class="w-10 h-10 bg-gradient-to-br from-saffron via-white to-indiaGreen border border-slate-200 rounded-lg flex items-center justify-center shadow-md relative overflow-hidden group-hover:shadow-lg transition-shadow">
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                 <div class="w-6 h-6 border-2 border-chakraBlue rounded-full flex items-center justify-center">
+                                    <div class="w-4 h-4 border border-chakraBlue rounded-full"></div>
+                                 </div>
+                            </div>
+                            <span class="relative z-10 text-chakraBlue font-bold text-xl drop-shadow-sm">M</span>
+                        </div>
+                        <span class="font-serif font-semibold text-xl text-slate-800 tracking-tight hidden sm:block">Mentoring Bharat</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html#about" class="text-sm font-medium text-slate-600 hover:text-saffron transition-colors">About</a>
+                    <a href="index.html#intervention" class="text-sm font-medium text-slate-600 hover:text-saffron transition-colors">Intervention</a>
+                    <a href="#" class="text-sm font-bold text-chakraBlue border-b-2 border-chakraBlue pb-1">Mentoring 23-24</a>
+                    <a href="index.html#contact" class="px-5 py-2.5 rounded-full bg-chakraBlue text-white text-sm font-medium hover:bg-blue-900 transition-all shadow-md hover:shadow-lg">
+                        Get Involved
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative pt-32 pb-20 overflow-hidden bg-slate-50">
+        <!-- Tricolor Background Gradient -->
+        <div class="absolute inset-0 bg-gradient-to-br from-saffron via-white to-indiaGreen opacity-[0.08]"></div>
+        
+        <!-- Decorative Chakra -->
+        <div class="absolute -right-20 top-20 w-[500px] h-[500px] opacity-[0.03] animate-spin-slow pointer-events-none">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#000080" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 2v20"></path>
+                <path d="M2 12h20"></path>
+                <path d="M12 12 4.93 4.93"></path>
+                <path d="M19.07 4.93 12 12"></path>
+                <path d="M12 12 4.93 19.07"></path>
+                <path d="M19.07 19.07 12 12"></path>
+                <path d="m17 7-10 10"></path>
+                <path d="m7 7 10 10"></path>
+                <path d="M12 2.5 14.5 12"></path>
+                <path d="M12 2.5 9.5 12"></path>
+            </svg>
+        </div>
+
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-100 text-saffron text-sm font-bold tracking-wide uppercase mb-6 border border-orange-200">
+                    <span class="w-2 h-2 rounded-full bg-saffron"></span>
+                    Impact Report
+                </div>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif font-bold leading-tight mb-6 text-slate-900">
+                    Mentoring for IIT Campus <br/>
+                    <span class="text-chakraBlue">Placements</span>
+                </h1>
+                <p class="text-xl text-slate-600 font-medium max-w-2xl mx-auto">
+                    Academic Year 2023-2024
+                </p>
+                <div class="mt-8 flex justify-center">
+                    <div class="h-1 w-24 bg-gradient-to-r from-saffron via-white to-indiaGreen rounded-full"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Purpose & Process -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 items-start">
+                <div>
+                    <span class="text-chakraBlue font-semibold tracking-wide uppercase text-sm">Our Mission</span>
+                    <h2 class="text-3xl font-serif font-bold text-slate-900 mt-2 mb-6">Purpose of Mentoring</h2>
+                    <p class="text-slate-600 leading-relaxed mb-8">
+                        Our goal is to support graduating IIT students by senior Alumni, providing a comprehensive safety net that bridges the gap between academic capability and industry employability.
+                    </p>
+                    
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div class="flex gap-3 p-4 rounded-xl bg-slate-50 border border-slate-100">
+                            <i data-lucide="file-text" class="w-6 h-6 text-saffron flex-shrink-0"></i>
+                            <span class="text-sm font-medium text-slate-700">CV Preparation & Review</span>
+                        </div>
+                        <div class="flex gap-3 p-4 rounded-xl bg-slate-50 border border-slate-100">
+                            <i data-lucide="users" class="w-6 h-6 text-secondary flex-shrink-0"></i>
+                            <span class="text-sm font-medium text-slate-700">Mock Interviews by Experts</span>
+                        </div>
+                        <div class="flex gap-3 p-4 rounded-xl bg-slate-50 border border-slate-100">
+                            <i data-lucide="mic" class="w-6 h-6 text-indiaGreen flex-shrink-0"></i>
+                            <span class="text-sm font-medium text-slate-700">Communication Skills</span>
+                        </div>
+                        <div class="flex gap-3 p-4 rounded-xl bg-slate-50 border border-slate-100">
+                            <i data-lucide="briefcase" class="w-6 h-6 text-purple-600 flex-shrink-0"></i>
+                            <span class="text-sm font-medium text-slate-700">Job Search & Negotiation</span>
+                        </div>
+                        <div class="flex gap-3 p-4 rounded-xl bg-slate-50 border border-slate-100">
+                            <i data-lucide="heart" class="w-6 h-6 text-red-500 flex-shrink-0"></i>
+                            <span class="text-sm font-medium text-slate-700">Personal & Confidence Building</span>
+                        </div>
+                        <div class="flex gap-3 p-4 rounded-xl bg-slate-50 border border-slate-100">
+                            <i data-lucide="globe-2" class="w-6 h-6 text-chakraBlue flex-shrink-0"></i>
+                            <span class="text-sm font-medium text-slate-700">Access to Alumni Network</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-br from-slate-900 to-chakraBlue rounded-3xl p-8 text-white shadow-xl relative overflow-hidden">
+                    <div class="relative z-10">
+                        <h3 class="text-2xl font-bold mb-2 text-white">Achievements</h3>
+                        <p class="text-blue-200 mb-8 text-sm">Mentoring outcomes for the batch of 2024</p>
+                        
+                        <div class="flex items-end gap-2 mb-2">
+                            <span class="text-6xl font-bold text-saffron">150+</span>
+                        </div>
+                        <p class="text-lg font-medium mb-8 border-b border-white/10 pb-8">
+                            IIT Students placed in the current mentoring batch.
+                        </p>
+
+                        <div class="flex items-start gap-4">
+                            <div class="p-3 bg-white/10 rounded-lg">
+                                <i data-lucide="check-circle" class="w-6 h-6 text-green-400"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-blue-100 leading-relaxed">
+                                    Special focus on <span class="text-white font-bold">unplaced IITians</span> who graduated in 2023, ensuring they are now well placed in the industry.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Decorative BG -->
+                    <div class="absolute right-0 bottom-0 opacity-10 transform translate-x-1/4 translate-y-1/4">
+                        <svg width="300" height="300" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Placements List Section -->
+    <section class="py-16 bg-slate-50 border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="text-saffron font-bold tracking-wide uppercase text-sm">Success Metrics</span>
+                <h2 class="text-3xl font-serif font-bold text-slate-900 mt-2">Where Our Mentees Are Working</h2>
+                <p class="text-slate-500 mt-2">A representative list of companies hiring from our 2024 cohort</p>
+            </div>
+
+            <!-- Company Cloud Grid -->
+            <div class="bg-white rounded-3xl p-8 shadow-sm border border-slate-200">
+                <div class="flex flex-wrap gap-3 justify-center text-sm font-medium text-slate-600" id="company-container">
+                    <!-- Companies will be populated here via JS for cleaner HTML, but displaying some statically for example -->
+                    <span class="px-4 py-2 bg-slate-50 rounded-full border border-slate-100">Microsoft</span>
+                    <span class="px-4 py-2 bg-slate-50 rounded-full border border-slate-100">Accenture Japan</span>
+                    <span class="px-4 py-2 bg-slate-50 rounded-full border border-slate-100">Google</span>
+                    <span class="px-4 py-2 bg-slate-50 rounded-full border border-slate-100">Pine Labs</span>
+                    <span class="px-4 py-2 bg-slate-50 rounded-full border border-slate-100">EY</span>
+                    <span class="px-4 py-2 bg-slate-50 rounded-full border border-slate-100">Vedanta</span>
+                    <span class="px-4 py-2 bg-slate-50 rounded-full border border-slate-100">Bajaj Auto</span>
+                    <span class="px-4 py-2 bg-slate-50 rounded-full border border-slate-100">FICO</span>
+                    <span class="px-4 py-2 bg-slate-50 rounded-full border border-slate-100">Media.net</span>
+                    <span class="px-4 py-2 bg-slate-50 rounded-full border border-slate-100">HPCL</span>
+                    <span class="px-4 py-2 bg-slate-50 rounded-full border border-slate-100">Air India</span>
+                    <span class="px-4 py-2 bg-slate-50 rounded-full border border-slate-100">Taiwan Semiconductor</span>
+                    <span class="px-4 py-2 bg-slate-50 rounded-full border border-slate-100">BPCL</span>
+                    <span class="px-4 py-2 bg-slate-50 rounded-full border border-slate-100">Reliance</span>
+                    <span class="px-4 py-2 bg-slate-50 rounded-full border border-slate-100">NPCI</span>
+                    <span class="px-4 py-2 bg-slate-50 rounded-full border border-slate-100">Tata Elxsi</span>
+                    <span class="px-4 py-2 bg-slate-50 rounded-full border border-slate-100">Mercedes Benz</span>
+                    <span class="px-4 py-2 bg-slate-50 rounded-full border border-slate-100">L&T</span>
+                    <span class="px-4 py-2 bg-slate-50 rounded-full border border-slate-100">Deloitte</span>
+                    <span class="px-4 py-2 bg-slate-50 rounded-full border border-slate-100">IOCL</span>
+                    <span class="px-4 py-2 bg-slate-50 rounded-full border border-slate-100">Ola</span>
+                    <span class="px-4 py-2 bg-slate-50 rounded-full border border-slate-100">TCS Prime</span>
+                    <span class="px-4 py-2 bg-slate-50 rounded-full border border-slate-100">GAIL</span>
+                    <span class="px-4 py-2 bg-slate-50 rounded-full border border-slate-100">C-DOT</span>
+                    <span class="px-4 py-2 bg-slate-50 rounded-full border border-slate-100">HCL</span>
+                    <!-- ... Full list script below ... -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-12">
+                <h2 class="text-3xl font-serif font-bold text-slate-900">Success Stories</h2>
+                <p class="text-slate-500">Voices from the Graduating Batch of 2024</p>
+                <div class="w-20 h-1 bg-chakraBlue mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Testimonial Card 1 -->
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 card-hover relative group">
+                    <i data-lucide="quote" class="w-8 h-8 text-saffron/20 absolute top-6 right-6 group-hover:text-saffron/40 transition-colors"></i>
+                    <p class="text-slate-600 text-sm italic mb-6 leading-relaxed">
+                        "Sir, I am one of the students from your mentorship program. I have followed your instructions from start... Yesterday I got placed in <span class="font-semibold text-slate-800">Digit insurance</span>. Again, very very thank you sir."
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-gradient-to-br from-blue-100 to-blue-200 rounded-full flex items-center justify-center text-blue-700 font-bold text-xs">IG</div>
+                        <div>
+                            <p class="text-sm font-bold text-slate-800">Student</p>
+                            <p class="text-xs text-slate-500">IIT Guwahati</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial Card 2 -->
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 card-hover relative group">
+                    <i data-lucide="quote" class="w-8 h-8 text-saffron/20 absolute top-6 right-6 group-hover:text-saffron/40 transition-colors"></i>
+                    <p class="text-slate-600 text-sm italic mb-6 leading-relaxed">
+                        "Sir, I got selected at <span class="font-semibold text-slate-800">NLC India Ltd</span> through GATE. I was from last few candidates... But your tips and podcasts helped me a lot to perform very well in the interview."
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-gradient-to-br from-blue-100 to-blue-200 rounded-full flex items-center justify-center text-blue-700 font-bold text-xs">IG</div>
+                        <div>
+                            <p class="text-sm font-bold text-slate-800">Student</p>
+                            <p class="text-xs text-slate-500">IIT Guwahati</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial Card 3 -->
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 card-hover relative group">
+                    <i data-lucide="quote" class="w-8 h-8 text-saffron/20 absolute top-6 right-6 group-hover:text-saffron/40 transition-colors"></i>
+                    <p class="text-slate-600 text-sm italic mb-6 leading-relaxed">
+                        "I have just got placed at <span class="font-semibold text-slate-800">AgroNxt</span>... I am really grateful to you for your initiation and efforts to give us such a detailed and effective guidance."
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-gradient-to-br from-green-100 to-green-200 rounded-full flex items-center justify-center text-green-700 font-bold text-xs">IK</div>
+                        <div>
+                            <p class="text-sm font-bold text-slate-800">Student</p>
+                            <p class="text-xs text-slate-500">IIT Kanpur</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial Card 4 -->
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 card-hover relative group">
+                    <i data-lucide="quote" class="w-8 h-8 text-saffron/20 absolute top-6 right-6 group-hover:text-saffron/40 transition-colors"></i>
+                    <p class="text-slate-600 text-sm italic mb-6 leading-relaxed">
+                        "Sir, I got selected in <span class="font-semibold text-slate-800">BPCL</span>. Thank you so much sir. Your Mentoring helped me a lot. I was hopeless due to phase 1 but your guidance helped to reach this goal."
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-gradient-to-br from-orange-100 to-orange-200 rounded-full flex items-center justify-center text-orange-700 font-bold text-xs">IB</div>
+                        <div>
+                            <p class="text-sm font-bold text-slate-800">Student</p>
+                            <p class="text-xs text-slate-500">IIT Bombay</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial Card 5 -->
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 card-hover relative group">
+                    <i data-lucide="quote" class="w-8 h-8 text-saffron/20 absolute top-6 right-6 group-hover:text-saffron/40 transition-colors"></i>
+                    <p class="text-slate-600 text-sm italic mb-6 leading-relaxed">
+                        "I've secured a job at <span class="font-semibold text-slate-800">Accenture India</span>... Your insights were instrumental in boosting my performance during interviews."
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-gradient-to-br from-red-100 to-red-200 rounded-full flex items-center justify-center text-red-700 font-bold text-xs">IP</div>
+                        <div>
+                            <p class="text-sm font-bold text-slate-800">Student</p>
+                            <p class="text-xs text-slate-500">IIT Patna</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial Card 6 -->
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 card-hover relative group">
+                    <i data-lucide="quote" class="w-8 h-8 text-saffron/20 absolute top-6 right-6 group-hover:text-saffron/40 transition-colors"></i>
+                    <p class="text-slate-600 text-sm italic mb-6 leading-relaxed">
+                        "Sir, I got selected in <span class="font-semibold text-slate-800">Reliance</span>! Thanks a lot! Your guidance helped me a lot throughout the interview! Without your help I might had not cracked it."
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-gradient-to-br from-green-100 to-green-200 rounded-full flex items-center justify-center text-green-700 font-bold text-xs">IK</div>
+                        <div>
+                            <p class="text-sm font-bold text-slate-800">Student</p>
+                            <p class="text-xs text-slate-500">IIT Kanpur</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial Card 7 -->
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 card-hover relative group">
+                    <i data-lucide="quote" class="w-8 h-8 text-saffron/20 absolute top-6 right-6 group-hover:text-saffron/40 transition-colors"></i>
+                    <p class="text-slate-600 text-sm italic mb-6 leading-relaxed">
+                        "Sir, I finally got placed in <span class="font-semibold text-slate-800">Pine Labs</span> today. I am thankful for all the support and guidance provided by you. This mentorship programme helped me a lot."
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-gradient-to-br from-orange-100 to-orange-200 rounded-full flex items-center justify-center text-orange-700 font-bold text-xs">IB</div>
+                        <div>
+                            <p class="text-sm font-bold text-slate-800">Student</p>
+                            <p class="text-xs text-slate-500">IIT Bombay</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial Card 8 -->
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 card-hover relative group">
+                    <i data-lucide="quote" class="w-8 h-8 text-saffron/20 absolute top-6 right-6 group-hover:text-saffron/40 transition-colors"></i>
+                    <p class="text-slate-600 text-sm italic mb-6 leading-relaxed">
+                        "I got placed in <span class="font-semibold text-slate-800">Tata Elxsi</span>... Your motivational messages on group helped me a lot to cope up till now, and now I am happy and satisfied."
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-gradient-to-br from-blue-100 to-blue-200 rounded-full flex items-center justify-center text-blue-700 font-bold text-xs">IG</div>
+                        <div>
+                            <p class="text-sm font-bold text-slate-800">Student</p>
+                            <p class="text-xs text-slate-500">IIT Guwahati</p>
+                        </div>
+                    </div>
+                </div>
+
+                 <!-- Testimonial Card 9 -->
+                 <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 card-hover relative group">
+                    <i data-lucide="quote" class="w-8 h-8 text-saffron/20 absolute top-6 right-6 group-hover:text-saffron/40 transition-colors"></i>
+                    <p class="text-slate-600 text-sm italic mb-6 leading-relaxed">
+                        "I got an offer from <span class="font-semibold text-slate-800">Air India</span>... Thank you so much for all your guidance, mock interview and feedback. Scenario was somewhat similar to what you discussed."
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 bg-gradient-to-br from-purple-100 to-purple-200 rounded-full flex items-center justify-center text-purple-700 font-bold text-xs">ID</div>
+                        <div>
+                            <p class="text-sm font-bold text-slate-800">Student</p>
+                            <p class="text-xs text-slate-500">IIT Delhi</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <p class="text-slate-500 italic">...and many more success stories from IIT Madras, BHU, Hyderabad, Kharagpur, and Bhubaneswar.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-8 h-8 bg-gradient-to-r from-saffron via-white to-indiaGreen rounded-md flex items-center justify-center text-chakraBlue font-bold border border-white/20">M</div>
+                        <span class="font-serif font-semibold text-lg text-white">Mentoring Bharat</span>
+                    </div>
+                    <p class="text-sm leading-relaxed">
+                        Supporting marginalized communities in higher education through mentorship, advocacy, and professional networking.
+                    </p>
+                </div>
+                <div>
+                    <h5 class="text-white font-semibold mb-4">Quick Links</h5>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="index.html#about" class="hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="index.html#intervention" class="hover:text-white transition-colors">Our Interventions</a></li>
+                        <li><a href="index.html#team" class="hover:text-white transition-colors">Leadership</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-white font-semibold mb-4">Contact</h5>
+                    <p class="text-sm">Have questions or want to get involved?</p>
+                    <a href="mailto:contact@mentoringbharat.org" class="inline-block mt-2 text-saffron hover:text-white transition-colors text-sm font-medium">Get in touch &rarr;</a>
+                </div>
+            </div>
+            <div class="border-t border-slate-900 pt-8 text-center text-sm">
+                <p>&copy; 2024 Mentoring Bharat - Global IIT-IIM Alumni Support Group. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // ----------------------------------------------------
+        // COMPANY DATA POPULATION
+        // ----------------------------------------------------
+        const companyList = [
+            "Microsoft", "Pine Labs", "Accenture Japan", "EY", "Vedanta", "Bajaj Auto", "FICO", "Media.net", "HPCL", "Axxela", 
+            "Air India data", "Edgeverve", "Axis Bank", "Taiwan Semiconductor", "Air India sde", "Amadeus", "EXL", "MIPS", 
+            "Monarch tractor", "BPCL", "IQVIA", "Hyperbots System", "Fujitsu", "CAMS", "Reliance", "NPCI", "ClearTax", 
+            "Capgrid", "Tata Elxsi", "Xion", "Asper.ai", "Jindal Oman", "Fuji Electric", "C-DOT", "Mercedes Benz", "L&T", 
+            "E-ring", "Dolat capital", "Greaves Cotton", "Indkal", "TVS motors", "Jindal Stainless", "Petronet", "SMFG", 
+            "Deloitte", "Uni Tri Tech", "Accenture", "Merilytics", "Motherson Group", "Apporchid", "IOCL", "Straive", "HCL", 
+            "Ola", "Jindal Shadeed Oman", "Tredence Analytics", "K12 Technology", "Digit insurance", "Angel Broking", 
+            "Exide Energy", "Cubastion Consulting", "Tata Autocomp", "Narayana", "TCS Prime", "KPIT Technologies", 
+            "AgroNxt", "CSRL", "Sandivk", "ANZ Bank", "CDAC", "SRF", "Netradyne", "GAIL", "Meril Life Sciences", "NLC", 
+            "Techfour", "Arthmate", "Timble", "LetsBloom Pte", "ASEC", "Indxx", "Reliance Insurance"
+        ];
+
+        // Remove duplicates and sort
+        const uniqueCompanies = [...new Set(companyList)].sort();
+
+        const container = document.getElementById('company-container');
+        container.innerHTML = uniqueCompanies.map(company => 
+            `<span class="px-4 py-2 bg-slate-50 hover:bg-white hover:shadow-md transition-all rounded-full border border-slate-200 text-slate-700 cursor-default">${company}</span>`
+        ).join('');
+
+        // ----------------------------------------------------
+        // SIDEBAR LOGIC
+        // ----------------------------------------------------
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar-panel');
+            const overlay = document.getElementById('sidebar-overlay');
+            const body = document.body;
+            
+            if (sidebar.classList.contains('-translate-x-full')) {
+                sidebar.classList.remove('-translate-x-full');
+                overlay.classList.remove('opacity-0', 'invisible');
+                body.style.overflow = 'hidden';
+            } else {
+                sidebar.classList.add('-translate-x-full');
+                overlay.classList.add('opacity-0', 'invisible');
+                body.style.overflow = '';
+            }
+        }
+
+        function toggleDropdown(menuId, buttonElement) {
+            const menu = document.getElementById(menuId);
+            const icon = buttonElement.querySelector('svg');
+            
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                icon.classList.add('rotate-180');
+            } else {
+                menu.classList.add('hidden');
+                icon.classList.remove('rotate-180');
+            }
+        }
+
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                navbar.classList.add('shadow-md');
+            } else {
+                navbar.classList.remove('shadow-md');
+            }
+        });
+    </script>
+</body>
+</html>
