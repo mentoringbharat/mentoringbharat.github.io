@@ -1,342 +1,452 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mentoring Bharat - Global IIT-IIM Alumni Support Group</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Custom Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e3a8a', // Deep Blue
+                        secondary: '#3b82f6', // Bright Blue
+                        accent: '#f59e0b', // Amber
+                        dark: '#0f172a',
+                        light: '#f8fafc',
+                        // Indian Flag Colors
+                        saffron: '#FF9933',
+                        indiaGreen: '#138808',
+                        chakraBlue: '#000080',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    animation: {
+                        'spin-slow': 'spin 20s linear infinite',
+                    }
+                }
+            }
+        }
+    </script>
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        /* Custom Utilities */
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        
+        .hero-flag-bg {
+            background: linear-gradient(135deg, rgba(255, 153, 51, 0.15) 0%, rgba(255, 255, 255, 0.9) 45%, rgba(255, 255, 255, 0.9) 55%, rgba(19, 136, 8, 0.15) 100%);
         }
 
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            line-height: 1.6;
-            color: #333;
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
 
-        header {
-            background: white;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        .animate-fade-in {
+            animation: fadeIn 1s ease-out;
         }
 
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-weight: 700;
-            font-size: 1.3rem;
-        }
-
-        .logo-box {
-            background: #7dcc1f;
-            color: white;
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 4px;
-            font-weight: 700;
-        }
-
-        nav {
-            display: flex;
-            gap: 2rem;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #666;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: #1a5490;
-        }
-
-        .hero {
-            background: linear-gradient(135deg, #f5a962 0%, #d4d9a8 50%, #a8d9c8 100%);
-            padding: 4rem 2rem;
-            text-align: center;
-            color: #1a1a1a;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-
-        .hero .highlight {
-            color: #1a5490;
-        }
-
-        .hero p {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            color: #555;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-        }
-
-        .btn {
-            padding: 0.75rem 2rem;
-            border-radius: 25px;
-            font-weight: 600;
-            text-decoration: none;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: all 0.3s;
-        }
-
-        .btn-primary {
-            background: #1a5490;
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: #0f3a66;
-            transform: translateY(-2px);
-        }
-
-        .btn-secondary {
-            background: white;
-            color: #1a5490;
-            border: 2px solid #1a5490;
-        }
-
-        .btn-secondary:hover {
-            background: #f0f5fb;
-            transform: translateY(-2px);
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            padding: 3rem 2rem;
-            background: #f9f9f9;
-            text-align: center;
-        }
-
-        .stat-item h3 {
-            font-size: 2.5rem;
-            color: #1a5490;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-item p {
-            color: #666;
-            font-weight: 500;
-        }
-
-        .content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 3rem 2rem;
-        }
-
-        section {
-            margin-bottom: 4rem;
-        }
-
-        section h2 {
-            font-size: 2.2rem;
-            margin-bottom: 1.5rem;
-            color: #1a1a1a;
-        }
-
-        section p {
-            font-size: 1rem;
-            line-height: 1.8;
-            color: #555;
-            margin-bottom: 1rem;
-        }
-
-        .initiative-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .initiative-card {
-            background: #f9f9f9;
-            padding: 2rem;
-            border-radius: 8px;
-            border-left: 4px solid #1a5490;
-        }
-
-        .initiative-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            color: #1a1a1a;
-        }
-
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .card {
-            background: white;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            padding: 2rem;
-            text-align: center;
-            transition: all 0.3s;
-        }
-
-        .card:hover {
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-            transform: translateY(-4px);
-        }
-
-        .card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            color: #1a1a1a;
-        }
-
-        .card p {
-            color: #666;
-            font-size: 0.95rem;
-        }
-
-        footer {
-            background: #1a2332;
-            color: #fff;
-            text-align: center;
-            padding: 2rem;
-            margin-top: 4rem;
-        }
-
-        footer p {
-            color: #bbb;
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            nav {
-                gap: 1rem;
-            }
-
-            .stats {
-                grid-template-columns: 1fr;
-            }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
-<body>
-    <header>
-        <div class="logo">
-            <div class="logo-box">MB</div>
-            <span>Mentoring Bharat</span>
+<body class="font-sans text-slate-700 bg-slate-50 antialiased selection:bg-saffron selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-2">
+                    <div class="w-10 h-10 bg-gradient-to-br from-saffron via-white to-indiaGreen border border-slate-200 rounded-lg flex items-center justify-center shadow-md relative overflow-hidden">
+                        <!-- Mini Chakra in logo -->
+                        <div class="absolute inset-0 flex items-center justify-center">
+                             <div class="w-6 h-6 border-2 border-chakraBlue rounded-full flex items-center justify-center">
+                                <div class="w-4 h-4 border border-chakraBlue rounded-full"></div>
+                             </div>
+                        </div>
+                        <span class="relative z-10 text-chakraBlue font-bold text-xl drop-shadow-sm">M</span>
+                    </div>
+                    <span class="font-serif font-semibold text-xl text-slate-800 tracking-tight">Mentoring Bharat</span>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#about" class="text-sm font-medium text-slate-600 hover:text-saffron transition-colors">About</a>
+                    <a href="#intervention" class="text-sm font-medium text-slate-600 hover:text-saffron transition-colors">Intervention</a>
+                    <a href="#team" class="text-sm font-medium text-slate-600 hover:text-saffron transition-colors">Leadership</a>
+                    <a href="#media" class="text-sm font-medium text-slate-600 hover:text-saffron transition-colors">News</a>
+                    <a href="#contact" class="px-5 py-2.5 rounded-full bg-chakraBlue text-white text-sm font-medium hover:bg-blue-900 transition-all shadow-md hover:shadow-lg">
+                        Get Involved
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-slate-600 hover:text-chakraBlue focus:outline-none">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
         </div>
-        <nav>
-            <a href="#about">About</a>
-            <a href="#intervention">Intervention</a>
-            <a href="#leadership">Leadership</a>
-            <a href="#media">Media</a>
-        </nav>
+
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full shadow-xl">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-orange-50 hover:text-saffron">About</a>
+                <a href="#intervention" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-orange-50 hover:text-saffron">Intervention</a>
+                <a href="#team" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-orange-50 hover:text-saffron">Leadership</a>
+                <a href="#media" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-orange-50 hover:text-saffron">News</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Indian Flag Theme -->
+    <header class="relative pt-32 pb-24 overflow-hidden">
+        <!-- Tricolor Background Gradient -->
+        <div class="absolute inset-0 bg-gradient-to-br from-saffron via-white to-indiaGreen opacity-90"></div>
+        <div class="absolute inset-0 bg-white/30 backdrop-blur-[2px]"></div>
+
+        <!-- Decorative Spinning Chakra Background -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] opacity-[0.05] animate-spin-slow pointer-events-none">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#000080" stroke-width="0.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <path d="M12 2v20"></path>
+                <path d="M2 12h20"></path>
+                <path d="M12 12 4.93 4.93"></path>
+                <path d="M19.07 4.93 12 12"></path>
+                <path d="M12 12 4.93 19.07"></path>
+                <path d="M19.07 19.07 12 12"></path>
+                <path d="m17 7-10 10"></path>
+                <path d="m7 7 10 10"></path>
+                <!-- Adding more spokes for realism approximation -->
+                <path d="M12 2.5 14.5 12"></path>
+                <path d="M12 2.5 9.5 12"></path>
+            </svg>
+        </div>
+
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center z-10">
+            <span class="inline-block py-1.5 px-4 rounded-full bg-chakraBlue/5 border border-chakraBlue/10 text-chakraBlue text-xs font-bold tracking-wider uppercase mb-6 animate-fade-in">
+                Global IIT-IIM Alumni Support Group
+            </span>
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-serif font-bold leading-tight mb-6 animate-fade-in text-slate-900" style="animation-delay: 0.1s">
+                Empowering the Next Generation of <br/>
+                <span class="text-chakraBlue">Indian Leaders</span>
+            </h1>
+            <p class="text-lg md:text-xl text-slate-700 max-w-2xl mb-10 animate-fade-in font-medium" style="animation-delay: 0.2s">
+                A professional networking platform for marginalized communities from premier institutes. Bridging the gap through mentorship, advocacy, and community support.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 animate-fade-in" style="animation-delay: 0.3s">
+                <a href="#about" class="px-8 py-3.5 rounded-full bg-chakraBlue text-white font-semibold hover:bg-blue-900 transition-all shadow-lg hover:shadow-xl hover:-translate-y-1">
+                    Learn More
+                </a>
+                <a href="#intervention" class="px-8 py-3.5 rounded-full bg-white border border-chakraBlue/20 text-chakraBlue font-semibold hover:bg-blue-50 transition-all shadow-sm hover:shadow-md">
+                    Our Impact
+                </a>
+            </div>
+        </div>
+
+        <!-- Stats Bar -->
+        <div class="relative max-w-5xl mx-auto mt-16 px-4 z-10">
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-6 bg-white/80 backdrop-blur-md rounded-2xl p-6 border border-white/40 shadow-xl text-center">
+                <div class="p-2">
+                    <div class="text-3xl md:text-4xl font-bold text-chakraBlue mb-1">1,000+</div>
+                    <div class="text-sm text-slate-600 uppercase tracking-wide font-medium">Alumni Network</div>
+                </div>
+                <div class="p-2 border-l border-slate-200">
+                    <div class="text-3xl md:text-4xl font-bold text-chakraBlue mb-1">1,000+</div>
+                    <div class="text-sm text-slate-600 uppercase tracking-wide font-medium">Students Mentored</div>
+                </div>
+                <div class="col-span-2 md:col-span-1 p-2 md:border-l border-slate-200">
+                    <div class="text-3xl md:text-4xl font-bold text-chakraBlue mb-1">2023</div>
+                    <div class="text-sm text-slate-600 uppercase tracking-wide font-medium">Initiative Founded</div>
+                </div>
+            </div>
+        </div>
     </header>
 
-    <section class="hero">
-        <h1>Empowering the Next Generation of <span class="highlight">Indian Leaders</span></h1>
-        <p>Global IIT-IIM Alumni Support Group: A professional networking platform for marginalized communities from premier institutes, supporting academic, professional, and social progress.</p>
-        <div class="hero-buttons">
-            <button class="btn btn-primary">Learn More</button>
-            <button class="btn btn-secondary">Get Involved</button>
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="relative">
+                    <div class="absolute inset-0 bg-gradient-to-tr from-orange-100 to-green-50 rounded-3xl transform -rotate-3 scale-105 -z-10"></div>
+                    <div class="bg-white p-8 md:p-10 rounded-3xl shadow-xl border border-slate-100">
+                        <i data-lucide="quote" class="w-12 h-12 text-saffron/40 mb-6"></i>
+                        <h3 class="text-2xl font-bold text-slate-800 mb-4">The Mentoring Bharat Initiative</h3>
+                        <p class="text-slate-600 mb-6 leading-relaxed">
+                            Started in 2023, following the unfortunate death of IIT Bombay's Darshan Solanki, this initiative extends mentoring support to IIT students coming from marginalized backgrounds.
+                        </p>
+                        <div class="flex items-center gap-4 pt-4 border-t border-slate-100">
+                            <div class="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center text-saffron">
+                                <i data-lucide="users" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm font-semibold text-slate-800">Contextual Mentoring</p>
+                                <p class="text-xs text-slate-500">Provided by alumni who faced similar paths.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <span class="text-saffron font-bold tracking-wide uppercase text-sm">About Us</span>
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-slate-900 mt-2 mb-6">Building Bridges for Social Justice</h2>
+                    <p class="text-lg text-slate-600 mb-6 leading-relaxed">
+                        We are a professional networking platform for IIT-IIM-NIT alumni belonging to the Constitutionally marginalized Scheduled Castes and Scheduled Tribes.
+                    </p>
+                    <p class="text-slate-600 mb-8 leading-relaxed">
+                        Inspired by social justice philosophy, our aim is to support fellow alumni's academic, professional, and social progress as a means to pay back and uplift the community as a whole. We are non-political and work on trust, respect, integrity, and the spirit of community service.
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <div class="mt-1 mr-3 flex-shrink-0">
+                                <i data-lucide="check-circle-2" class="w-6 h-6 text-indiaGreen"></i>
+                            </div>
+                            <span class="text-slate-700">Advocacy for diversity in higher education</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="mt-1 mr-3 flex-shrink-0">
+                                <i data-lucide="check-circle-2" class="w-6 h-6 text-indiaGreen"></i>
+                            </div>
+                            <span class="text-slate-700">Support for academic and professional progress</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="mt-1 mr-3 flex-shrink-0">
+                                <i data-lucide="check-circle-2" class="w-6 h-6 text-indiaGreen"></i>
+                            </div>
+                            <span class="text-slate-700">Over 1,000 active alumni members globally</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section class="stats">
-        <div class="stat-item">
-            <h3>1,000+</h3>
-            <p>Alumni Across World</p>
-        </div>
-        <div class="stat-item">
-            <h3>1,000+</h3>
-            <p>Students Mentored</p>
-        </div>
-        <div class="stat-item">
-            <h3>2023</h3>
-            <p>Mentoring Initiative Start</p>
+    <!-- Intervention Section -->
+    <section id="intervention" class="py-20 bg-slate-50 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-chakraBlue font-semibold tracking-wide uppercase text-sm">Our Approach</span>
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-slate-900 mt-2 mb-4">Holistic Intervention Areas</h2>
+                <p class="text-slate-600">We provide comprehensive support systems designed to address the unique challenges faced by students and alumni.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-100 card-hover group">
+                    <div class="w-14 h-14 rounded-xl bg-orange-50 flex items-center justify-center text-saffron mb-6 group-hover:bg-saffron group-hover:text-white transition-colors">
+                        <i data-lucide="heart-handshake" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-3">Emotional Support</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Providing mental health and emotional guidance to students facing challenges, isolation, and discrimination on campus.
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-100 card-hover group">
+                    <div class="w-14 h-14 rounded-xl bg-blue-50 flex items-center justify-center text-secondary mb-6 group-hover:bg-secondary group-hover:text-white transition-colors">
+                        <i data-lucide="graduation-cap" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-3">Academic Growth</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Supporting students in their academic journey through peer tutoring, resource sharing, and study planning with experienced mentors.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-100 card-hover group">
+                    <div class="w-14 h-14 rounded-xl bg-green-50 flex items-center justify-center text-indiaGreen mb-6 group-hover:bg-indiaGreen group-hover:text-white transition-colors">
+                        <i data-lucide="compass" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-3">Career Guidance</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Helping students navigate complex career landscapes, internship opportunities, and professional development paths.
+                    </p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-white rounded-2xl p-8 shadow-sm border border-slate-100 card-hover group">
+                    <div class="w-14 h-14 rounded-xl bg-purple-50 flex items-center justify-center text-purple-500 mb-6 group-hover:bg-purple-500 group-hover:text-white transition-colors">
+                        <i data-lucide="briefcase" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-800 mb-3">Professional Net</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Creating a strong safety net for alumni to advance their professional careers through referrals and exclusive networking.
+                    </p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <div class="content">
-        <section id="about">
-            <h2>About Us</h2>
-            <p><strong>A professional networking platform</strong> for IIT-IIM-NIT alumni belonging to the Constitutionally marginalised Scheduled Castes and Scheduled Tribes. The Group has over 1,000 alumni across the world and is fast growing.</p>
-            <p>Inspired by the social justice philosophy, the aim is to support fellow alumni's academic, professional and social progress as a means to pay back and uplift the community as a whole. The Group does advocacy work to improve diversity in higher education. It is non-political and works on trust, respect, integrity and community service spirit. The Group respects everyone in the world.</p>
-        </section>
+    <!-- Leadership Section -->
+    <section id="team" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-saffron font-bold tracking-wide uppercase text-sm">Leadership</span>
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-slate-900 mt-2">Visionary Guidance</h2>
+            </div>
 
-        <section id="initiative">
-            <h2>Mentoring Bharat Initiative</h2>
-            <p>Started in 2023 following the unfortunate death of IIT Bombay's Darshan Solanki. The alumni felt the need to extend mentoring support to IIT students coming from marginalized backgrounds. This need became acute with the recent passing away of IIT Delhi's Ayush Asna and Anil Kumar.</p>
-            <div class="initiative-grid">
-                <div class="initiative-card">
-                    <h3>Mentoring AY 2023-2024</h3>
-                    <p>Content for Mentoring AY 2023-2024 will be added here. <a href="#">Add your hyperlink later.</a></p>
-                </div>
-                <div class="initiative-card">
-                    <h3>Mentoring AY 2024-2025</h3>
-                    <p>Content for Mentoring AY 2024-2025 will be added here. <a href="#">Add your hyperlink later.</a></p>
-                </div>
-                <div class="initiative-card">
-                    <h3>Mentoring AY 2025-2026</h3>
-                    <p>Content for Mentoring AY 2025-2026 will be added here. <a href="#">Add your hyperlink later.</a></p>
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-gradient-to-r from-orange-50 via-white to-green-50 rounded-3xl p-8 md:p-12 shadow-lg border border-slate-100 flex flex-col md:flex-row items-center gap-8 md:gap-12">
+                    <div class="flex-shrink-0">
+                        <div class="w-32 h-32 md:w-40 md:h-40 rounded-full bg-white border-4 border-slate-100 shadow-md flex items-center justify-center overflow-hidden">
+                            <img src="https://raw.githubusercontent.com/mentoringbharat/mentoringbharat.github.io/main/unnamed.jpg" alt="Dheeraj Singh" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <div class="text-center md:text-left flex-1">
+                        <h3 class="text-2xl font-bold text-slate-900 mb-1">Dheeraj Singh</h3>
+                        <p class="text-chakraBlue font-medium mb-4">Founder & Lead Mentor</p>
+                        <div class="inline-flex items-center px-3 py-1 rounded-full bg-blue-50 text-chakraBlue text-xs font-semibold mb-4">
+                            IIT Kanpur & IIM Calcutta Alumni
+                        </div>
+                        <p class="text-slate-600 mb-6 italic">
+                            "The leadership team is dedicated to supporting marginalized students and advocating for diversity and inclusion in higher education institutions across India and globally."
+                        </p>
+                        <a href="https://www.linkedin.com/in/dheeraj-singh-4a42784b/" target="_blank" class="inline-flex items-center text-chakraBlue hover:text-blue-800 font-semibold transition-colors group">
+                            Connect on LinkedIn 
+                            <i data-lucide="arrow-right" class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="alumni">
-            <h2>Register as Alumni</h2>
-            <p>Join our alumni network and become part of the movement to support marginalized students.</p>
-            <button class="btn btn-primary">Register Now</button>
-        </section>
-
-        <section id="media">
-            <h2>Media and Allies</h2>
-            <div class="cards-grid">
-                <div class="card">
-                    <h3>Media Coverage</h3>
-                    <p>Our work is featured in major publications. <a href="#">Add hyperlink later.</a></p>
+    <!-- Media Section -->
+    <section id="media" class="py-20 bg-slate-900 text-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                <div>
+                    <span class="text-saffron font-semibold tracking-wide uppercase text-sm">Media Coverage</span>
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold mt-2">In The News</h2>
                 </div>
-                <div class="card">
-                    <h3>Our Allies</h3>
-                    <p>Organizations and individuals supporting our mission. <a href="#">Add hyperlink later.</a></p>
+                <div class="hidden md:block w-32 h-1 bg-gradient-to-r from-saffron via-white to-indiaGreen rounded-full mb-2"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- News Item 1 -->
+                <a href="https://www.thehindu.com/news/cities/Delhi/desperate-for-support-scst-students-at-iits-reach-out-to-alumni-group-for-help/article67380445.ece" target="_blank" class="block group">
+                    <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-all duration-300 h-full">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 rounded-full bg-red-500/20 text-red-300 text-xs font-medium">The Hindu</span>
+                            <i data-lucide="external-link" class="w-5 h-5 text-slate-400 group-hover:text-white"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-3 group-hover:text-blue-200 transition-colors">
+                            Desperate for support: SC/ST students at IITs reach out to alumni group for help
+                        </h4>
+                        <p class="text-slate-400 text-sm">
+                            Global IIT SC/ST Alumni Support Group provides mentoring, counselling & job search help to marginalized students.
+                        </p>
+                    </div>
+                </a>
+
+                <!-- News Item 2 -->
+                <a href="https://www.hindustantimes.com/opinion/not-just-guidelines-but-a-legal-framework-needed-to-prevent-rampant-caste-bias-on-campus-101693248735503.html" target="_blank" class="block group">
+                    <div class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-all duration-300 h-full">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 rounded-full bg-blue-500/20 text-blue-300 text-xs font-medium">Hindustan Times</span>
+                            <i data-lucide="external-link" class="w-5 h-5 text-slate-400 group-hover:text-white"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-3 group-hover:text-blue-200 transition-colors">
+                            Not just guidelines but a legal framework needed to prevent rampant caste bias
+                        </h4>
+                        <p class="text-slate-400 text-sm">
+                            Opinion piece on addressing diversity deficit in IITs and curbing caste discrimination on campus.
+                        </p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-8 h-8 bg-gradient-to-r from-saffron via-white to-indiaGreen rounded-md flex items-center justify-center text-chakraBlue font-bold border border-white/20">M</div>
+                        <span class="font-serif font-semibold text-lg text-white">Mentoring Bharat</span>
+                    </div>
+                    <p class="text-sm leading-relaxed">
+                        Supporting marginalized communities in higher education through mentorship, advocacy, and professional networking.
+                    </p>
+                </div>
+                <div>
+                    <h5 class="text-white font-semibold mb-4">Quick Links</h5>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#about" class="hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#intervention" class="hover:text-white transition-colors">Our Interventions</a></li>
+                        <li><a href="#team" class="hover:text-white transition-colors">Leadership</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-white font-semibold mb-4">Contact</h5>
+                    <p class="text-sm">Have questions or want to get involved?</p>
+                    <a href="mailto:contact@mentoringbharat.org" class="inline-block mt-2 text-saffron hover:text-white transition-colors text-sm font-medium">Get in touch &rarr;</a>
                 </div>
             </div>
-        </section>
-    </div>
-
-    <footer>
-        <p>&copy; 2024 Mentoring Bharat - Global IIT-IIM Alumni Support Group</p>
-        <p>Supporting marginalized communities in higher education</p>
+            <div class="border-t border-slate-900 pt-8 text-center text-sm">
+                <p>&copy; 2024 Mentoring Bharat - Global IIT-IIM Alumni Support Group. All rights reserved.</p>
+            </div>
+        </div>
     </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                navbar.classList.add('shadow-md');
+            } else {
+                navbar.classList.remove('shadow-md');
+            }
+        });
+    </script>
 </body>
 </html>
