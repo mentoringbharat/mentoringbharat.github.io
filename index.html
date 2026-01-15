@@ -18,172 +18,179 @@
     .gradient-hero { background: linear-gradient(135deg, #F5A962 0%, #BFF4D4 100%); }
     .gradient-accent { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
     .section-dark { background: #1f2937; }
+    .sidebar-link { transition: all 0.3s ease; }
+    .sidebar-link:hover { padding-left: 1.5rem; background-color: #f3f4f6; }
+    .sidebar-link.active { background-color: #efe9ff; border-left: 4px solid #667eea; }
   </style>
 </head>
-<body class="bg-white text-gray-900">
-  <!-- Navigation -->
-  <nav class="sticky top-0 z-50 bg-white shadow-sm">
-    <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
-      <div class="flex items-center gap-2">
-        <div class="w-8 h-8 bg-gradient-to-br from-yellow-400 to-green-400 rounded flex items-center justify-center font-bold text-white text-sm">MB</div>
-        <span class="font-bold text-lg hidden sm:inline">Mentoring Bharat</span>
-      </div>
-      <div class="hidden md:flex items-center gap-6">
-        <a href="#about" class="text-gray-600 hover:text-gray-900 transition">About</a>
-        <a href="#intervention" class="text-gray-600 hover:text-gray-900 transition">Intervention</a>
-        <a href="#leadership" class="text-gray-600 hover:text-gray-900 transition">Leadership</a>
-        <a href="#media" class="text-gray-600 hover:text-gray-900 transition">Media</a>
-      </div>
-    </div>
-  </nav>
+<body class="bg-white text-gray-900 flex">
+  <!-- Left Sidebar -->
+  <aside class="w-64 bg-gray-50 border-r border-gray-200 p-6 h-screen sticky top-0 overflow-y-auto hidden md:block">
+    <h3 class="text-lg font-bold text-gray-900 mb-6">Navigation</h3>
+    <nav class="space-y-2">
+      <a href="#about-us" class="sidebar-link block px-4 py-2 rounded text-gray-700 font-medium hover:text-blue-600">About Us</a>
+      <a href="#mentoring-2023-2024" class="sidebar-link block px-4 py-2 rounded text-gray-700 hover:text-blue-600">Mentoring AY 2023-2024</a>
+      <a href="#mentoring-2024-2025" class="sidebar-link block px-4 py-2 rounded text-gray-700 hover:text-blue-600">Mentoring AY 2024-2025</a>
+      <a href="#mentoring-2025-2026" class="sidebar-link block px-4 py-2 rounded text-gray-700 hover:text-blue-600">Mentoring AY 2025-2026</a>
+      <a href="#register-alumni" class="sidebar-link block px-4 py-2 rounded text-gray-700 hover:text-blue-600">Register as Alumni</a>
+      <a href="#media-allies" class="sidebar-link block px-4 py-2 rounded text-gray-700 hover:text-blue-600">Media and Allies</a>
+    </nav>
+  </aside>
 
-  <!-- Hero Section -->
-  <section class="gradient-hero py-32 text-center">
-    <div class="max-w-5xl mx-auto px-4">
-      <h1 class="text-5xl md:text-6xl font-bold mb-6 text-gray-900">
-        Empowering the Next Generation of <span class="text-blue-600">Indian Leaders</span>
-      </h1>
-      <p class="text-xl text-gray-700 mb-8 max-w-2xl mx-auto">
-        Global IIT-IIM Alumni Support Group: A professional networking platform for marginalized communities from premier institutes, supporting academic, professional, and social progress.
-      </p>
-      <div class="flex gap-4 justify-center flex-wrap">
-        <button class="bg-blue-900 text-white px-8 py-3 rounded-full font-semibold hover:bg-blue-800 transition">Learn More</button>
-        <button class="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold border-2 border-blue-600 hover:bg-blue-50 transition">Get Involved</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- Stats Section -->
-  <section class="bg-gray-50 py-16">
-    <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div class="text-center p-6">
-        <div class="text-5xl font-bold text-blue-600 mb-2">1,000+</div>
-        <p class="text-gray-700 font-semibold">Alumni Across World</p>
-      </div>
-      <div class="text-center p-6">
-        <div class="text-5xl font-bold text-blue-600 mb-2">1,000+</div>
-        <p class="text-gray-700 font-semibold">Students Mentored</p>
-      </div>
-      <div class="text-center p-6">
-        <div class="text-5xl font-bold text-blue-600 mb-2">2023</div>
-        <p class="text-gray-700 font-semibold">Mentoring Initiative Start</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- About Section -->
-  <section id="about" class="py-20 section-dark text-white">
-    <div class="max-w-5xl mx-auto px-4">
-      <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center text-yellow-400">About Us</h2>
-      
-      <div class="space-y-8">
-        <div class="bg-gray-800 p-8 rounded-lg border-l-4 border-yellow-400">
-          <p class="text-lg leading-relaxed mb-6">
-            <strong>A professional networking platform</strong> for IIT-IIM-NIT alumni belonging to the Constitutionally marginalised Scheduled Castes and Scheduled Tribes. The Group has over 1,000 alumni across the world and is fast growing.
-          </p>
-          <p class="text-lg leading-relaxed">
-            Inspired by the social justice philosophy, the aim is to support fellow alumni's academic, professional and social progress as a means to pay back and uplift the community as a whole. The Group does advocacy work to improve diversity in higher education. It is non-political and works on trust, respect, integrity and community service spirit. The Group respects everyone in the world.
-          </p>
+  <!-- Main Content -->
+  <div class="flex-1">
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white shadow-sm">
+      <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 bg-gradient-to-br from-yellow-400 to-green-400 rounded flex items-center justify-center font-bold text-white text-sm">MB</div>
+          <span class="font-bold text-lg hidden sm:inline">Mentoring Bharat</span>
         </div>
-
-        <div class="bg-gradient-accent rounded-lg p-8 text-white">
-          <h3 class="text-2xl font-bold mb-4">Mentoring Bharat Initiative</h3>
-          <p class="text-lg leading-relaxed">
-            Started in 2023 following the unfortunate death of IIT Bombay's Darshan Solanki. The alumni felt the need to extend mentoring support to IIT students coming from marginalized backgrounds. This need became acute with the recent passing away of IIT Delhi's Ayush Asna and Anil Kumar.
-          </p>
+        <div class="hidden md:flex items-center gap-6">
+          <a href="#about" class="text-gray-600 hover:text-gray-900 transition">About</a>
+          <a href="#intervention" class="text-gray-600 hover:text-gray-900 transition">Intervention</a>
+          <a href="#leadership" class="text-gray-600 hover:text-gray-900 transition">Leadership</a>
+          <a href="#media" class="text-gray-600 hover:text-gray-900 transition">Media</a>
         </div>
       </div>
-    </div>
-  </section>
+    </nav>
 
-  <!-- Our Intervention Section -->
-  <section id="intervention" class="py-20 bg-white">
-    <div class="max-w-5xl mx-auto px-4">
-      <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center text-blue-600">Our Intervention</h2>
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-        <div class="bg-blue-50 p-8 rounded-lg border-l-4 border-blue-600">
-          <h3 class="text-2xl font-bold text-blue-900 mb-4">Emotional & Academic Support</h3>
-          <p class="text-gray-700 text-lg leading-relaxed">
-            Mentoring Bharat aims to help marginalised students in their emotional, academic, career and professional development.
-          </p>
-        </div>
-        <div class="bg-green-50 p-8 rounded-lg border-l-4 border-green-600">
-          <h3 class="text-2xl font-bold text-green-900 mb-4">Contextual Mentoring</h3>
-          <p class="text-gray-700 text-lg leading-relaxed">
-            Provided by alumni who faced similar social and academic issues and are now doing well in life.
-          </p>
-        </div>
-      </div>
-
-      <div class="bg-gradient-to-r from-blue-100 to-blue-50 p-8 rounded-lg text-center">
-        <p class="text-2xl font-bold text-blue-900 mb-4">Over 1,000 IIT and NIT students availed mentoring support</p>
-        <p class="text-gray-700 text-lg">
-          The Group has raised funds for the families of late <a href="https://www.ketto.org/fundraiser/in-the-memory-of-iit-bombay-student-darshan-solanki" class="text-blue-600 font-semibold hover:underline">Darshan Solanki</a> and <a href="https://www.ketto.org/fundraiser/tragic-end-of-21-year-old" class="text-blue-600 font-semibold hover:underline">Anil Kumar</a>.
+    <!-- Hero Section -->
+    <section class="gradient-hero py-32 text-center">
+      <div class="max-w-5xl mx-auto px-4">
+        <h1 class="text-5xl md:text-6xl font-bold mb-6 text-gray-900">
+          Empowering the Next Generation of <span class="text-blue-600">Indian Leaders</span>
+        </h1>
+        <p class="text-xl text-gray-700 mb-8 max-w-2xl mx-auto">
+          Global IIT-IIM Alumni Support Group: A professional networking platform for marginalized communities from premier institutes, supporting academic, professional, and social progress.
         </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Leadership Section -->
-  <section id="leadership" class="py-20 bg-gray-50">
-    <div class="max-w-5xl mx-auto px-4">
-      <h2 class="text-4xl md:text-5xl font-bold mb-16 text-center text-gray-900">Leadership</h2>
-      
-      <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-        <div class="gradient-accent p-8 text-white text-center">
-          <h3 class="text-3xl font-bold mb-2">Dheeraj Singh</h3>
-          <p class="text-lg opacity-90">Founder & Lead Mentor</p>
+        <div class="flex gap-4 justify-center flex-wrap">
+          <button class="bg-blue-900 text-white px-8 py-3 rounded-full font-semibold hover:bg-blue-800 transition">Learn More</button>
+          <button class="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold border-2 border-blue-600 hover:bg-blue-50 transition">Get Involved</button>
         </div>
-        <div class="p-8 text-center">
-          <p class="text-gray-700 text-lg mb-6">
-            <span class="font-semibold text-gray-900">IIT Kanpur & IIM Calcutta Alumnus</span>
-          </p>
-          <a href="https://www.linkedin.com/in/dheeraj-singh-4a42784b/" target="_blank" class="inline-block bg-blue-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-blue-700 transition">
-            Connect on LinkedIn
+      </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="bg-gray-50 py-16">
+      <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="text-center p-6">
+          <div class="text-5xl font-bold text-blue-600 mb-2">1,000+</div>
+          <p class="text-gray-700 font-semibold">Alumni Across World</p>
+        </div>
+        <div class="text-center p-6">
+          <div class="text-5xl font-bold text-blue-600 mb-2">1,000+</div>
+          <p class="text-gray-700 font-semibold">Students Mentored</p>
+        </div>
+        <div class="text-center p-6">
+          <div class="text-5xl font-bold text-blue-600 mb-2">2023</div>
+          <p class="text-gray-700 font-semibold">Mentoring Initiative Start</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about-us" class="py-20 section-dark text-white">
+      <div class="max-w-5xl mx-auto px-4">
+        <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center text-yellow-400">About Us</h2>
+        
+        <div class="space-y-8">
+          <div class="bg-gray-800 p-8 rounded-lg border-l-4 border-yellow-400">
+            <p class="text-lg leading-relaxed mb-6">
+              <strong>A professional networking platform</strong> for IIT-IIM-NIT alumni belonging to the Constitutionally marginalised Scheduled Castes and Scheduled Tribes. The Group has over 1,000 alumni across the world and is fast growing.
+            </p>
+            <p class="text-lg leading-relaxed">
+              Inspired by the social justice philosophy, the aim is to support fellow alumni's academic, professional and social progress as a means to pay back and uplift the community as a whole. The Group does advocacy work to improve diversity in higher education. It is non-political and works on trust, respect, integrity and community service spirit. The Group respects everyone in the world.
+            </p>
+          </div>
+
+          <div class="bg-gradient-accent rounded-lg p-8 text-white">
+            <h3 class="text-2xl font-bold mb-4">Mentoring Bharat Initiative</h3>
+            <p class="text-lg leading-relaxed">
+              Started in 2023 following the unfortunate death of IIT Bombay's Darshan Solanki. The alumni felt the need to extend mentoring support to IIT students coming from marginalized backgrounds. This need became acute with the recent passing away of IIT Delhi's Ayush Asna and Anil Kumar.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mentoring AY 2023-2024 Section -->
+    <section id="mentoring-2023-2024" class="py-20 bg-white">
+      <div class="max-w-5xl mx-auto px-4">
+        <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center text-blue-600">Mentoring AY 2023-2024</h2>
+        <div class="bg-blue-50 p-8 rounded-lg border-l-4 border-blue-600">
+          <p class="text-gray-700 text-lg">Content for Mentoring AY 2023-2024 will be added here. Add your hyperlink later.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mentoring AY 2024-2025 Section -->
+    <section id="mentoring-2024-2025" class="py-20 bg-gray-50">
+      <div class="max-w-5xl mx-auto px-4">
+        <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center text-blue-600">Mentoring AY 2024-2025</h2>
+        <div class="bg-white p-8 rounded-lg border-l-4 border-blue-600">
+          <p class="text-gray-700 text-lg">Content for Mentoring AY 2024-2025 will be added here. Add your hyperlink later.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mentoring AY 2025-2026 Section -->
+    <section id="mentoring-2025-2026" class="py-20 bg-white">
+      <div class="max-w-5xl mx-auto px-4">
+        <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center text-blue-600">Mentoring AY 2025-2026</h2>
+        <div class="bg-blue-50 p-8 rounded-lg border-l-4 border-blue-600">
+          <p class="text-gray-700 text-lg">Content for Mentoring AY 2025-2026 will be added here. Add your hyperlink later.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Register as Alumni Section -->
+    <section id="register-alumni" class="py-20 bg-gray-50">
+      <div class="max-w-5xl mx-auto px-4">
+        <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center text-blue-600">Register as Alumni</h2>
+        <div class="bg-white p-8 rounded-lg border-l-4 border-green-600">
+          <p class="text-gray-700 text-lg mb-6">Join our alumni network and become part of the movement to support marginalized students.</p>
+          <button class="bg-green-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-green-700 transition">Register Now</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Media and Allies Section -->
+    <section id="media-allies" class="py-20 bg-white">
+      <div class="max-w-5xl mx-auto px-4">
+        <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center text-gray-900">Media and Allies</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <a href="#" class="bg-gray-50 border-2 border-gray-200 rounded-lg p-6 hover:border-blue-500 hover:shadow-lg transition">
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0 w-1 bg-blue-600 rounded"></div>
+              <div class="flex-1">
+                <h3 class="font-bold text-gray-900 mb-2 text-lg">Media Coverage</h3>
+                <p class="text-gray-600 mb-3">Our work is featured in major publications. Add hyperlink later.</p>
+              </div>
+            </div>
+          </a>
+
+          <a href="#" class="bg-gray-50 border-2 border-gray-200 rounded-lg p-6 hover:border-blue-500 hover:shadow-lg transition">
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0 w-1 bg-blue-600 rounded"></div>
+              <div class="flex-1">
+                <h3 class="font-bold text-gray-900 mb-2 text-lg">Our Allies</h3>
+                <p class="text-gray-600 mb-3">Organizations and individuals supporting our mission. Add hyperlink later.</p>
+              </div>
+            </div>
           </a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Media & Press Section -->
-  <section id="media" class="py-20 bg-white">
-    <div class="max-w-5xl mx-auto px-4">
-      <h2 class="text-4xl md:text-5xl font-bold mb-12 text-center text-gray-900">In The News</h2>
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <a href="https://www.thehindu.com/news/cities/Delhi/desperate-for-support-scst-students-at-iits-reach-out-to-alumni-group-for-help/article67380445.ece" target="_blank" class="bg-white border-2 border-gray-200 rounded-lg p-6 hover:border-blue-500 hover:shadow-lg transition">
-          <div class="flex items-start gap-4">
-            <div class="flex-shrink-0 w-1 bg-blue-600 rounded"></div>
-            <div class="flex-1">
-              <h3 class="font-bold text-gray-900 mb-2 text-lg">Desperate for support: SC/ST students at IITs reach out to alumni group for help</h3>
-              <p class="text-gray-600 mb-3">Global IIT SC/ST Alumni Support Group provides mentoring, counselling & job search help to SC/ST students facing issues of caste discrimination & alienation.</p>
-              <p class="text-sm text-gray-500 font-semibold">The Hindu</p>
-            </div>
-          </div>
-        </a>
-
-        <a href="https://www.hindustantimes.com/opinion/not-just-guidelines-but-a-legal-framework-needed-to-prevent-rampant-caste-bias-on-campus-101693248735503.html" target="_blank" class="bg-white border-2 border-gray-200 rounded-lg p-6 hover:border-blue-500 hover:shadow-lg transition">
-          <div class="flex items-start gap-4">
-            <div class="flex-shrink-0 w-1 bg-blue-600 rounded"></div>
-            <div class="flex-1">
-              <h3 class="font-bold text-gray-900 mb-2 text-lg">Not just guidelines but a legal framework needed to prevent rampant caste bias on campus</h3>
-              <p class="text-gray-600 mb-3">Fifty years is a good time period to see how IITs have fared in achieving a constitutional mandate - representation of SC and ST communities.</p>
-              <p class="text-sm text-gray-500 font-semibold">Hindustan Times</p>
-            </div>
-          </div>
-        </a>
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+      <div class="max-w-7xl mx-auto px-4 text-center">
+        <p class="text-lg mb-2">© 2024 Mentoring Bharat - Global IIT-IIM Alumni Support Group</p>
+        <p class="text-gray-400">Supporting marginalized communities in higher education</p>
       </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="bg-gray-900 text-white py-12">
-    <div class="max-w-7xl mx-auto px-4 text-center">
-      <p class="text-lg mb-2">© 2024 Mentoring Bharat - Global IIT-IIM Alumni Support Group</p>
-      <p class="text-gray-400">Supporting marginalized communities in higher education</p>
-    </div>
-  </footer>
+    </footer>
+  </div>
 </body>
 </html>
