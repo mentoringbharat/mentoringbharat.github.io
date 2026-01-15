@@ -3,20 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Join Mentoring Support - Mentoring Bharat</title>
+    <title>Alumni Support - Mentoring Bharat</title>
     
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
     
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
-    <!-- Custom Config -->
     <script>
         tailwind.config = {
             theme: {
@@ -63,30 +59,14 @@
         .rotate-chevron {
             transform: rotate(180deg);
         }
-
-        .step-connector::before {
-            content: '';
-            position: absolute;
-            top: 2rem;
-            bottom: -2rem;
-            left: 1.25rem;
-            width: 2px;
-            background-color: #e2e8f0;
-            z-index: 0;
-        }
-        .step-last::before {
-            display: none;
-        }
     </style>
 </head>
 <body class="font-sans text-slate-700 bg-slate-50 antialiased selection:bg-saffron selection:text-white">
 
-    <!-- LEFT SIDEBAR DRAWER -->
     <div id="sidebar-overlay" class="fixed inset-0 bg-slate-900/50 z-[60] opacity-0 invisible sidebar-overlay backdrop-blur-sm" onclick="toggleSidebar()"></div>
     
     <aside id="sidebar-panel" class="fixed top-0 left-0 h-full w-80 bg-white z-[70] shadow-2xl transform -translate-x-full sidebar-panel overflow-y-auto">
         <div class="p-6">
-            <!-- Sidebar Header -->
             <div class="flex items-center justify-between mb-8">
                 <span class="font-serif font-bold text-xl text-slate-800">Menu</span>
                 <button onclick="toggleSidebar()" class="p-2 hover:bg-slate-100 rounded-full transition-colors">
@@ -94,42 +74,16 @@
                 </button>
             </div>
 
-            <!-- Sidebar Links -->
             <div class="space-y-2">
                 <a href="index.html#about" class="block px-4 py-3 text-slate-700 hover:bg-orange-50 hover:text-saffron rounded-lg font-medium transition-colors">
                     About Us
                 </a>
 
                 <a href="#" class="block px-4 py-3 text-slate-700 hover:bg-orange-50 hover:text-saffron rounded-lg font-medium transition-colors">
-                    Mentoring AY 2023-2024
+                    Mentoring Programs
                 </a>
 
-                <!-- Dropdown 1 -->
-                <div>
-                    <button onclick="toggleDropdown('menu-2425', this)" class="w-full flex items-center justify-between px-4 py-3 text-slate-700 hover:bg-orange-50 hover:text-saffron rounded-lg font-medium transition-colors group">
-                        <span>Mentoring AY 2024-2025</span>
-                        <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 group-hover:text-saffron transition-transform duration-200"></i>
-                    </button>
-                    <div id="menu-2425" class="hidden pl-4 space-y-1 mt-1">
-                        <a href="#" class="block px-4 py-2 text-sm text-slate-600 hover:text-chakraBlue">Schedule</a>
-                        <a href="#" class="block px-4 py-2 text-sm text-slate-600 hover:text-chakraBlue">Mentors List</a>
-                    </div>
-                </div>
-
-                <!-- Dropdown 2 (Active Section) -->
-                <div>
-                    <button onclick="toggleDropdown('menu-2526', this)" class="w-full flex items-center justify-between px-4 py-3 text-saffron bg-orange-50 rounded-lg font-medium transition-colors group">
-                        <span>Mentoring AY 2025-2026</span>
-                        <i data-lucide="chevron-down" class="w-4 h-4 text-saffron rotate-180 transition-transform duration-200"></i>
-                    </button>
-                    <div id="menu-2526" class="pl-4 space-y-1 mt-1">
-                        <a href="#" class="block px-4 py-2 text-sm text-slate-600 hover:text-chakraBlue">Upcoming Events</a>
-                        <!-- Active Page Link -->
-                        <a href="#" class="block px-4 py-2 text-sm font-bold text-chakraBlue border-l-2 border-chakraBlue bg-blue-50/50">Student Registration</a>
-                    </div>
-                </div>
-
-                <a href="#" class="block px-4 py-3 text-slate-700 hover:bg-orange-50 hover:text-saffron rounded-lg font-medium transition-colors">
+                <a href="#" class="block px-4 py-3 text-saffron bg-orange-50 rounded-lg font-bold transition-colors">
                     Register as Alumni
                 </a>
 
@@ -139,7 +93,6 @@
             </div>
         </div>
         
-        <!-- Sidebar Footer -->
         <div class="absolute bottom-0 left-0 w-full p-6 border-t border-slate-100 bg-slate-50">
             <div class="flex items-center gap-3">
                 <div class="w-10 h-10 bg-white border border-slate-200 rounded-full flex items-center justify-center text-chakraBlue font-bold shadow-sm">M</div>
@@ -151,12 +104,10 @@
         </div>
     </aside>
 
-    <!-- Navigation -->
     <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 
-                <!-- Left Section: Sidebar Trigger + Logo -->
                 <div class="flex items-center gap-4">
                     <button onclick="toggleSidebar()" class="p-2 -ml-2 rounded-md text-slate-600 hover:text-chakraBlue hover:bg-blue-50 focus:outline-none transition-colors">
                         <i data-lucide="menu" class="w-6 h-6"></i>
@@ -175,70 +126,64 @@
                     </a>
                 </div>
 
-                <!-- Desktop Menu -->
                 <div class="hidden md:flex space-x-8 items-center">
                     <a href="index.html#about" class="text-sm font-medium text-slate-600 hover:text-saffron transition-colors">About</a>
                     <a href="index.html#intervention" class="text-sm font-medium text-slate-600 hover:text-saffron transition-colors">Intervention</a>
-                    <!-- Active State -->
-                    <a href="#" class="text-sm font-bold text-chakraBlue border-b-2 border-chakraBlue pb-1">Join Program</a>
-                    <a href="index.html#contact" class="px-5 py-2.5 rounded-full bg-chakraBlue text-white text-sm font-medium hover:bg-blue-900 transition-all shadow-md hover:shadow-lg">
-                        Get Involved
-                    </a>
+                    <a href="#" class="text-sm font-medium text-slate-600 hover:text-saffron transition-colors">Student Program</a>
+                    <a href="#" class="text-sm font-bold text-chakraBlue border-b-2 border-chakraBlue pb-1">Alumni Network</a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- Header Section -->
     <header class="relative pt-32 pb-16 bg-white overflow-hidden">
         <div class="absolute inset-0 bg-slate-50"></div>
-        <!-- Decorative Elements -->
         <div class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-orange-50 to-transparent opacity-60"></div>
         <div class="absolute bottom-0 left-0 w-1/3 h-full bg-gradient-to-r from-blue-50 to-transparent opacity-60"></div>
 
         <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <span class="inline-block py-1.5 px-4 rounded-full bg-white border border-slate-200 text-slate-600 text-xs font-bold tracking-wider uppercase mb-6 shadow-sm">
-                Student Registration
+                Est. 2017
             </span>
             <h1 class="text-3xl md:text-5xl font-serif font-bold text-slate-900 mb-6 leading-tight">
-                Mentoring for IIT <br/><span class="text-chakraBlue">Placement Support</span>
+                Global IIT-IIM Alumni <br/><span class="text-chakraBlue">Support Group</span>
             </h1>
             <p class="text-lg text-slate-600 max-w-2xl mx-auto">
-                Join a community dedicated to your success. Bridge the gap between campus and corporate with guidance from those who walked the path before you.
+                A professional networking platform for IIT, IIM, and NIT alumni aiming to serve society with a modern, futuristic, and humanitarian outlook.
             </p>
         </div>
     </header>
 
-    <!-- Content Section -->
     <div class="relative bg-white pb-20">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-10">
             
-            <!-- Eligibility Card -->
             <div class="bg-white rounded-3xl shadow-xl border border-slate-100 overflow-hidden">
                 <div class="bg-slate-900 px-8 py-6 flex items-center justify-between">
                     <h2 class="text-xl font-bold text-white flex items-center gap-2">
-                        <i data-lucide="check-square" class="w-6 h-6 text-saffron"></i>
-                        Eligibility Criteria
+                        <i data-lucide="globe" class="w-6 h-6 text-saffron"></i>
+                        Mission & Values
                     </h2>
-                    <span class="text-xs font-semibold px-3 py-1 rounded bg-white/10 text-slate-300 border border-white/10">Academic Year 2024-25</span>
+                    <span class="text-xs font-semibold px-3 py-1 rounded bg-white/10 text-slate-300 border border-white/10">1,000+ Members</span>
                 </div>
                 
                 <div class="p-8 md:p-10">
-                    <div class="mb-8">
-                        <p class="text-lg font-medium text-slate-800 mb-2">
-                            IIT students from <span class="text-chakraBlue font-bold underline decoration-saffron decoration-2 underline-offset-2">any program</span> are welcome to join.
+                    <div class="mb-8 border-b border-slate-100 pb-8">
+                        <p class="text-lg font-medium text-slate-800 mb-3 leading-relaxed">
+                            The Group is deeply inspired by the social justice philosophy. It is a space for alumni belonging to the <span class="text-chakraBlue font-bold decoration-saffron decoration-2 underline-offset-2">Constitutionally marginalised</span> Scheduled Castes and Scheduled Tribes.
                         </p>
-                        <p class="text-slate-500 text-sm">Please ensure you meet the following conditions before applying:</p>
+                        <p class="text-slate-600 text-sm italic">
+                            "The playing field is not level for all. The mission is to support fellow alumni academic, professional and social progress as a means to pay back and uplift the community as a whole."
+                        </p>
                     </div>
 
-                    <ul class="space-y-6">
+                    <ul class="space-y-6 mb-10">
                         <li class="flex items-start group">
                             <div class="flex-shrink-0 w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center mt-1 group-hover:bg-blue-100 transition-colors">
                                 <span class="text-chakraBlue font-bold text-sm">1</span>
                             </div>
                             <div class="ml-4">
-                                <h4 class="text-base font-semibold text-slate-800">Current Batch</h4>
-                                <p class="text-slate-600 text-sm mt-1">You must be sitting in the campus placement for the year 2024-25.</p>
+                                <h4 class="text-base font-semibold text-slate-800">Advocacy & Representation</h4>
+                                <p class="text-slate-600 text-sm mt-1">The Group also does advocacy work to improve representation in various areas.</p>
                             </div>
                         </li>
                         <li class="flex items-start group">
@@ -246,9 +191,55 @@
                                 <span class="text-chakraBlue font-bold text-sm">2</span>
                             </div>
                             <div class="ml-4">
-                                <h4 class="text-base font-semibold text-slate-800">Serious Intent</h4>
-                                <p class="text-slate-600 text-sm mt-1">You should be seriously aiming to secure an industry job.</p>
+                                <h4 class="text-base font-semibold text-slate-800">Core Values</h4>
+                                <p class="text-slate-600 text-sm mt-1">We are non-political and work on trust, respect, integrity, and community service spirit. The Group respects everyone in the world.</p>
                             </div>
                         </li>
-                        <li class="flex items-start group">
-                            <div class="flex-shrink-0 w-8 h-8 roun
+                    </ul>
+
+                    <div class="bg-orange-50/50 rounded-2xl p-6 border border-orange-100">
+                        <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+                            <div>
+                                <h3 class="text-lg font-bold text-slate-800">How to Join</h3>
+                                <p class="text-sm text-slate-600 mt-1">If you agree with the Group's mission and values, you are warmly welcome to join us.</p>
+                            </div>
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdw78bdhBx1X4mtaFdopoFD3qJvKQLfEQKu8nUi6MptRq7ygw/viewform" target="_blank" class="w-full md:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-chakraBlue text-white font-medium hover:bg-blue-900 transition-all shadow-md hover:shadow-lg group">
+                                Fill Google Form
+                                <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                            </a>
+                        </div>
+                        <p class="text-xs text-slate-500 mt-4">
+                            * Entry is post standard verification. Please fill the form to send your joining request.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Sidebar Logic
+        function toggleSidebar() {
+            const overlay = document.getElementById('sidebar-overlay');
+            const panel = document.getElementById('sidebar-panel');
+            
+            if (overlay.classList.contains('invisible')) {
+                // Open
+                overlay.classList.remove('invisible', 'opacity-0');
+                panel.classList.remove('-translate-x-full');
+                document.body.style.overflow = 'hidden';
+            } else {
+                // Close
+                overlay.classList.add('invisible', 'opacity-0');
+                panel.classList.add('-translate-x-full');
+                document.body.style.overflow = '';
+            }
+        }
+    </script>
+</body>
+</html>
