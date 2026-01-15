@@ -72,26 +72,119 @@
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
+
+        /* Sidebar Transition */
+        .sidebar-overlay {
+            transition: opacity 0.3s ease-in-out, visibility 0.3s;
+        }
+        .sidebar-panel {
+            transition: transform 0.3s ease-in-out;
+        }
+        .rotate-chevron {
+            transform: rotate(180deg);
+        }
     </style>
 </head>
 <body class="font-sans text-slate-700 bg-slate-50 antialiased selection:bg-saffron selection:text-white">
+
+    <!-- LEFT SIDEBAR DRAWER (New Addition) -->
+    <div id="sidebar-overlay" class="fixed inset-0 bg-slate-900/50 z-[60] opacity-0 invisible sidebar-overlay backdrop-blur-sm" onclick="toggleSidebar()"></div>
+    
+    <aside id="sidebar-panel" class="fixed top-0 left-0 h-full w-80 bg-white z-[70] shadow-2xl transform -translate-x-full sidebar-panel overflow-y-auto">
+        <div class="p-6">
+            <!-- Sidebar Header -->
+            <div class="flex items-center justify-between mb-8">
+                <span class="font-serif font-bold text-xl text-slate-800">Menu</span>
+                <button onclick="toggleSidebar()" class="p-2 hover:bg-slate-100 rounded-full transition-colors">
+                    <i data-lucide="x" class="w-6 h-6 text-slate-500"></i>
+                </button>
+            </div>
+
+            <!-- Sidebar Links (From Image) -->
+            <div class="space-y-2">
+                <!-- Simple Link -->
+                <a href="#about" onclick="toggleSidebar()" class="block px-4 py-3 text-slate-700 hover:bg-orange-50 hover:text-saffron rounded-lg font-medium transition-colors">
+                    About Mentor
+                </a>
+
+                <!-- Simple Link - UPDATED HREF -->
+                <a href="https://mentoringbharat.github.io/mentoring-ay-2023-2024.html" class="block px-4 py-3 text-slate-700 hover:bg-orange-50 hover:text-saffron rounded-lg font-medium transition-colors">
+                    Mentoring AY 2023-2024
+                </a>
+
+                <!-- Dropdown 1 -->
+                <div>
+                    <button onclick="toggleDropdown('menu-2425', this)" class="w-full flex items-center justify-between px-4 py-3 text-slate-700 hover:bg-orange-50 hover:text-saffron rounded-lg font-medium transition-colors group">
+                        <span>Mentoring AY 2024-2025</span>
+                        <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 group-hover:text-saffron transition-transform duration-200"></i>
+                    </button>
+                    <div id="menu-2425" class="hidden pl-4 space-y-1 mt-1">
+                        <a href="#" class="block px-4 py-2 text-sm text-slate-600 hover:text-chakraBlue">Schedule</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-slate-600 hover:text-chakraBlue">Mentors List</a>
+                    </div>
+                </div>
+
+                <!-- Dropdown 2 -->
+                <div>
+                    <button onclick="toggleDropdown('menu-2526', this)" class="w-full flex items-center justify-between px-4 py-3 text-slate-700 hover:bg-orange-50 hover:text-saffron rounded-lg font-medium transition-colors group">
+                        <span>Mentoring AY 2025-2026</span>
+                        <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 group-hover:text-saffron transition-transform duration-200"></i>
+                    </button>
+                    <div id="menu-2526" class="hidden pl-4 space-y-1 mt-1">
+                        <a href="#" class="block px-4 py-2 text-sm text-slate-600 hover:text-chakraBlue">Upcoming Events</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-slate-600 hover:text-chakraBlue">Registration</a>
+                    </div>
+                </div>
+
+                <!-- Simple Link - UPDATED HREF -->
+                <a href="https://mentoringbharat.github.io/alumnireg.html" class="block px-4 py-3 text-slate-700 hover:bg-orange-50 hover:text-saffron rounded-lg font-medium transition-colors">
+                    Register as Alumni
+                </a>
+
+                <!-- Simple Link -->
+                <a href="#media" onclick="toggleSidebar()" class="block px-4 py-3 text-slate-700 hover:bg-orange-50 hover:text-saffron rounded-lg font-medium transition-colors">
+                    Media and Allies
+                </a>
+            </div>
+        </div>
+        
+        <!-- Sidebar Footer -->
+        <div class="absolute bottom-0 left-0 w-full p-6 border-t border-slate-100 bg-slate-50">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-white border border-slate-200 rounded-full flex items-center justify-center text-chakraBlue font-bold shadow-sm">M</div>
+                <div>
+                    <p class="text-sm font-bold text-slate-900">Mentoring Bharat</p>
+                    <p class="text-xs text-slate-500">Alumni Support Group</p>
+                </div>
+            </div>
+        </div>
+    </aside>
 
     <!-- Navigation -->
     <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-                <!-- Logo -->
-                <div class="flex-shrink-0 flex items-center gap-2">
-                    <div class="w-10 h-10 bg-gradient-to-br from-saffron via-white to-indiaGreen border border-slate-200 rounded-lg flex items-center justify-center shadow-md relative overflow-hidden">
-                        <!-- Mini Chakra in logo -->
-                        <div class="absolute inset-0 flex items-center justify-center">
-                             <div class="w-6 h-6 border-2 border-chakraBlue rounded-full flex items-center justify-center">
-                                <div class="w-4 h-4 border border-chakraBlue rounded-full"></div>
-                             </div>
+                
+                <!-- Left Section: Sidebar Trigger + Logo -->
+                <div class="flex items-center gap-4">
+                    <!-- NEW LEFT SIDEBAR BUTTON -->
+                    <button onclick="toggleSidebar()" class="p-2 -ml-2 rounded-md text-slate-600 hover:text-chakraBlue hover:bg-blue-50 focus:outline-none transition-colors">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+
+                    <!-- Logo -->
+                    <div class="flex-shrink-0 flex items-center gap-2">
+                        <div class="w-10 h-10 bg-gradient-to-br from-saffron via-white to-indiaGreen border border-slate-200 rounded-lg flex items-center justify-center shadow-md relative overflow-hidden">
+                            <!-- Mini Chakra in logo -->
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                 <div class="w-6 h-6 border-2 border-chakraBlue rounded-full flex items-center justify-center">
+                                    <div class="w-4 h-4 border border-chakraBlue rounded-full"></div>
+                                 </div>
+                            </div>
+                            <span class="relative z-10 text-chakraBlue font-bold text-xl drop-shadow-sm">M</span>
                         </div>
-                        <span class="relative z-10 text-chakraBlue font-bold text-xl drop-shadow-sm">M</span>
+                        <span class="font-serif font-semibold text-xl text-slate-800 tracking-tight hidden sm:block">Mentoring Bharat</span>
                     </div>
-                    <span class="font-serif font-semibold text-xl text-slate-800 tracking-tight">Mentoring Bharat</span>
                 </div>
 
                 <!-- Desktop Menu -->
@@ -105,16 +198,16 @@
                     </a>
                 </div>
 
-                <!-- Mobile menu button -->
+                <!-- Right Mobile menu button (Kept as requested, though redundant with left sidebar) -->
                 <div class="md:hidden flex items-center">
                     <button id="mobile-menu-btn" class="text-slate-600 hover:text-chakraBlue focus:outline-none">
-                        <i data-lucide="menu" class="w-6 h-6"></i>
+                        <i data-lucide="more-vertical" class="w-6 h-6"></i>
                     </button>
                 </div>
             </div>
         </div>
 
-        <!-- Mobile Menu Panel -->
+        <!-- Mobile Menu Panel (Right Side Original) -->
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 absolute w-full shadow-xl">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                 <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-orange-50 hover:text-saffron">About</a>
@@ -143,7 +236,6 @@
                 <path d="M19.07 19.07 12 12"></path>
                 <path d="m17 7-10 10"></path>
                 <path d="m7 7 10 10"></path>
-                <!-- Adding more spokes for realism approximation -->
                 <path d="M12 2.5 14.5 12"></path>
                 <path d="M12 2.5 9.5 12"></path>
             </svg>
@@ -423,10 +515,49 @@
         // Initialize Icons
         lucide.createIcons();
 
-        // Mobile Menu Toggle
+        // ----------------------------------------------------
+        // LEFT SIDEBAR LOGIC (New)
+        // ----------------------------------------------------
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar-panel');
+            const overlay = document.getElementById('sidebar-overlay');
+            const body = document.body;
+            
+            // Toggle classes to slide in/out
+            if (sidebar.classList.contains('-translate-x-full')) {
+                sidebar.classList.remove('-translate-x-full');
+                overlay.classList.remove('opacity-0', 'invisible');
+                body.style.overflow = 'hidden'; // Prevent background scrolling
+            } else {
+                sidebar.classList.add('-translate-x-full');
+                overlay.classList.add('opacity-0', 'invisible');
+                body.style.overflow = '';
+            }
+        }
+
+        // Accordion Logic for Sidebar Dropdowns
+        function toggleDropdown(menuId, buttonElement) {
+            const menu = document.getElementById(menuId);
+            const icon = buttonElement.querySelector('svg');
+            
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                icon.classList.add('rotate-180'); // Rotate chevron
+            } else {
+                menu.classList.add('hidden');
+                icon.classList.remove('rotate-180');
+            }
+        }
+
+        // ----------------------------------------------------
+        // EXISTING LOGIC (Kept same)
+        // ----------------------------------------------------
+
+        // Mobile Menu Toggle (Right side - existing)
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
-
+        // Changed icon logic slightly to handle the Lucide replacement dynamically if needed, 
+        // but keeping simple toggle here as per original
         mobileMenuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
