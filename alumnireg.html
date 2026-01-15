@@ -3,16 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alumni Support - Mentoring Bharat</title>
+    <title>Alumni Registration - Mentoring Bharat</title>
     
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
     
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
+    <!-- Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
+    <!-- Custom Config -->
     <script>
         tailwind.config = {
             theme: {
@@ -34,7 +38,7 @@
                     },
                     animation: {
                         'spin-slow': 'spin 20s linear infinite',
-                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'fade-in': 'fadeIn 1s ease-out',
                     }
                 }
             }
@@ -49,6 +53,23 @@
             border-bottom: 1px solid rgba(0,0,0,0.05);
         }
         
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 1s ease-out;
+        }
+
         /* Sidebar Transition */
         .sidebar-overlay {
             transition: opacity 0.3s ease-in-out, visibility 0.3s;
@@ -63,10 +84,12 @@
 </head>
 <body class="font-sans text-slate-700 bg-slate-50 antialiased selection:bg-saffron selection:text-white">
 
+    <!-- LEFT SIDEBAR DRAWER -->
     <div id="sidebar-overlay" class="fixed inset-0 bg-slate-900/50 z-[60] opacity-0 invisible sidebar-overlay backdrop-blur-sm" onclick="toggleSidebar()"></div>
     
     <aside id="sidebar-panel" class="fixed top-0 left-0 h-full w-80 bg-white z-[70] shadow-2xl transform -translate-x-full sidebar-panel overflow-y-auto">
         <div class="p-6">
+            <!-- Sidebar Header -->
             <div class="flex items-center justify-between mb-8">
                 <span class="font-serif font-bold text-xl text-slate-800">Menu</span>
                 <button onclick="toggleSidebar()" class="p-2 hover:bg-slate-100 rounded-full transition-colors">
@@ -74,25 +97,55 @@
                 </button>
             </div>
 
+            <!-- Sidebar Links -->
             <div class="space-y-2">
-                <a href="index.html#about" class="block px-4 py-3 text-slate-700 hover:bg-orange-50 hover:text-saffron rounded-lg font-medium transition-colors">
-                    About Us
+                <a href="index.html" class="block px-4 py-3 text-slate-700 hover:bg-orange-50 hover:text-saffron rounded-lg font-medium transition-colors">
+                    Home
+                </a>
+                
+                <a href="mentor.html" class="block px-4 py-3 text-slate-700 hover:bg-orange-50 hover:text-saffron rounded-lg font-medium transition-colors">
+                    About Mentor
                 </a>
 
-                <a href="#" class="block px-4 py-3 text-slate-700 hover:bg-orange-50 hover:text-saffron rounded-lg font-medium transition-colors">
-                    Mentoring Programs
+                <a href="mentoring-ay-2023-2024.html" class="block px-4 py-3 text-slate-700 hover:bg-orange-50 hover:text-saffron rounded-lg font-medium transition-colors">
+                    Mentoring AY 2023-2024
                 </a>
 
-                <a href="#" class="block px-4 py-3 text-saffron bg-orange-50 rounded-lg font-bold transition-colors">
+                <!-- Dropdown 1 -->
+                <div>
+                    <button onclick="toggleDropdown('menu-2425', this)" class="w-full flex items-center justify-between px-4 py-3 text-slate-700 hover:bg-orange-50 hover:text-saffron rounded-lg font-medium transition-colors group">
+                        <span>Mentoring AY 2024-2025</span>
+                        <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 group-hover:text-saffron transition-transform duration-200"></i>
+                    </button>
+                    <div id="menu-2425" class="hidden pl-4 space-y-1 mt-1">
+                        <a href="#" class="block px-4 py-2 text-sm text-slate-600 hover:text-chakraBlue">Schedule</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-slate-600 hover:text-chakraBlue">Mentors List</a>
+                    </div>
+                </div>
+
+                <!-- Dropdown 2 -->
+                <div>
+                    <button onclick="toggleDropdown('menu-2526', this)" class="w-full flex items-center justify-between px-4 py-3 text-slate-700 hover:bg-orange-50 hover:text-saffron rounded-lg font-medium transition-colors group">
+                        <span>Mentoring AY 2025-2026</span>
+                        <i data-lucide="chevron-down" class="w-4 h-4 text-slate-400 group-hover:text-saffron transition-transform duration-200"></i>
+                    </button>
+                    <div id="menu-2526" class="hidden pl-4 space-y-1 mt-1">
+                        <a href="#" class="block px-4 py-2 text-sm text-slate-600 hover:text-chakraBlue">Upcoming Events</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-slate-600 hover:text-chakraBlue">Registration</a>
+                    </div>
+                </div>
+
+                <a href="alumnireg.html" onclick="toggleSidebar()" class="block px-4 py-3 bg-orange-50 text-saffron rounded-lg font-bold transition-colors border-l-4 border-saffron">
                     Register as Alumni
                 </a>
 
-                <a href="index.html#media" class="block px-4 py-3 text-slate-700 hover:bg-orange-50 hover:text-saffron rounded-lg font-medium transition-colors">
+                <a href="media.html" class="block px-4 py-3 text-slate-700 hover:bg-orange-50 hover:text-saffron rounded-lg font-medium transition-colors">
                     Media and Allies
                 </a>
             </div>
         </div>
         
+        <!-- Sidebar Footer -->
         <div class="absolute bottom-0 left-0 w-full p-6 border-t border-slate-100 bg-slate-50">
             <div class="flex items-center gap-3">
                 <div class="w-10 h-10 bg-white border border-slate-200 rounded-full flex items-center justify-center text-chakraBlue font-bold shadow-sm">M</div>
@@ -104,44 +157,47 @@
         </div>
     </aside>
 
+    <!-- Navigation -->
     <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 
+                <!-- Left Section: Sidebar Trigger + Logo -->
                 <div class="flex items-center gap-4">
                     <button onclick="toggleSidebar()" class="p-2 -ml-2 rounded-md text-slate-600 hover:text-chakraBlue hover:bg-blue-50 focus:outline-none transition-colors">
                         <i data-lucide="menu" class="w-6 h-6"></i>
                     </button>
 
-                    <a href="index.html" class="flex-shrink-0 flex items-center gap-2 group">
-                        <div class="w-10 h-10 bg-gradient-to-br from-saffron via-white to-indiaGreen border border-slate-200 rounded-lg flex items-center justify-center shadow-md relative overflow-hidden group-hover:shadow-lg transition-shadow">
-                            <div class="absolute inset-0 flex items-center justify-center">
-                                 <div class="w-6 h-6 border-2 border-chakraBlue rounded-full flex items-center justify-center">
-                                    <div class="w-4 h-4 border border-chakraBlue rounded-full"></div>
-                                 </div>
-                            </div>
+                    <!-- Logo -->
+                    <a href="index.html" class="flex-shrink-0 flex items-center gap-2">
+                        <div class="w-10 h-10 bg-gradient-to-br from-saffron via-white to-indiaGreen border border-slate-200 rounded-lg flex items-center justify-center shadow-md relative overflow-hidden">
                             <span class="relative z-10 text-chakraBlue font-bold text-xl drop-shadow-sm">M</span>
                         </div>
                         <span class="font-serif font-semibold text-xl text-slate-800 tracking-tight hidden sm:block">Mentoring Bharat</span>
                     </a>
                 </div>
 
+                <!-- Desktop Menu -->
                 <div class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html" class="text-sm font-medium text-slate-600 hover:text-saffron transition-colors">Home</a>
                     <a href="index.html#about" class="text-sm font-medium text-slate-600 hover:text-saffron transition-colors">About</a>
                     <a href="index.html#intervention" class="text-sm font-medium text-slate-600 hover:text-saffron transition-colors">Intervention</a>
-                    <a href="#" class="text-sm font-medium text-slate-600 hover:text-saffron transition-colors">Student Program</a>
-                    <a href="#" class="text-sm font-bold text-chakraBlue border-b-2 border-chakraBlue pb-1">Alumni Network</a>
+                    <a href="media.html" class="text-sm font-medium text-slate-600 hover:text-saffron transition-colors">Media</a>
+                    <a href="index.html#contact" class="px-5 py-2.5 rounded-full bg-chakraBlue text-white text-sm font-medium hover:bg-blue-900 transition-all shadow-md hover:shadow-lg">
+                        Get Involved
+                    </a>
                 </div>
             </div>
         </div>
     </nav>
 
+    <!-- Header / Hero Section -->
     <header class="relative pt-32 pb-16 bg-white overflow-hidden">
         <div class="absolute inset-0 bg-slate-50"></div>
         <div class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-orange-50 to-transparent opacity-60"></div>
         <div class="absolute bottom-0 left-0 w-1/3 h-full bg-gradient-to-r from-blue-50 to-transparent opacity-60"></div>
 
-        <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center animate-fade-in">
             <span class="inline-block py-1.5 px-4 rounded-full bg-white border border-slate-200 text-slate-600 text-xs font-bold tracking-wider uppercase mb-6 shadow-sm">
                 Est. 2017
             </span>
@@ -154,8 +210,9 @@
         </div>
     </header>
 
+    <!-- Content Section -->
     <div class="relative bg-white pb-20">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-10">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-10 animate-fade-in" style="animation-delay: 0.2s">
             
             <div class="bg-white rounded-3xl shadow-xl border border-slate-100 overflow-hidden">
                 <div class="bg-slate-900 px-8 py-6 flex items-center justify-between">
@@ -219,27 +276,83 @@
         </div>
     </div>
 
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-8 h-8 bg-gradient-to-r from-saffron via-white to-indiaGreen rounded-md flex items-center justify-center text-chakraBlue font-bold border border-white/20">M</div>
+                        <span class="font-serif font-semibold text-lg text-white">Mentoring Bharat</span>
+                    </div>
+                    <p class="text-sm leading-relaxed">
+                        Supporting marginalized communities in higher education through mentorship, advocacy, and professional networking.
+                    </p>
+                </div>
+                <div>
+                    <h5 class="text-white font-semibold mb-4">Quick Links</h5>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="index.html#about" class="hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="index.html#intervention" class="hover:text-white transition-colors">Our Interventions</a></li>
+                        <li><a href="index.html#team" class="hover:text-white transition-colors">Leadership</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-white font-semibold mb-4">Contact</h5>
+                    <p class="text-sm">Have questions or want to get involved?</p>
+                    <a href="mailto:dheeraj012@gmail.com" class="inline-block mt-2 text-saffron hover:text-white transition-colors text-sm font-medium">Get in touch &rarr;</a>
+                </div>
+            </div>
+            <div class="border-t border-slate-900 pt-8 text-center text-sm">
+                <p>&copy; 2024 Mentoring Bharat - Global IIT-IIM Alumni Support Group. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
     <script>
-        // Initialize Lucide Icons
+        // Initialize Icons
         lucide.createIcons();
 
         // Sidebar Logic
         function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar-panel');
             const overlay = document.getElementById('sidebar-overlay');
-            const panel = document.getElementById('sidebar-panel');
+            const body = document.body;
             
-            if (overlay.classList.contains('invisible')) {
-                // Open
-                overlay.classList.remove('invisible', 'opacity-0');
-                panel.classList.remove('-translate-x-full');
-                document.body.style.overflow = 'hidden';
+            if (sidebar.classList.contains('-translate-x-full')) {
+                sidebar.classList.remove('-translate-x-full');
+                overlay.classList.remove('opacity-0', 'invisible');
+                body.style.overflow = 'hidden'; 
             } else {
-                // Close
-                overlay.classList.add('invisible', 'opacity-0');
-                panel.classList.add('-translate-x-full');
-                document.body.style.overflow = '';
+                sidebar.classList.add('-translate-x-full');
+                overlay.classList.add('opacity-0', 'invisible');
+                body.style.overflow = '';
             }
         }
+
+        function toggleDropdown(menuId, buttonElement) {
+            const menu = document.getElementById(menuId);
+            const icon = buttonElement.querySelector('svg');
+            
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                icon.classList.add('rotate-180');
+            } else {
+                menu.classList.add('hidden');
+                icon.classList.remove('rotate-180');
+            }
+        }
+
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                navbar.classList.add('shadow-md');
+            } else {
+                navbar.classList.remove('shadow-md');
+            }
+        });
     </script>
 </body>
 </html>
