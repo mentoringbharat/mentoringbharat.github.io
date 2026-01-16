@@ -87,9 +87,33 @@
         }
         .sidebar-panel {
             transition: transform 0.3s ease-in-out;
+            position: relative;
+            overflow: hidden;
         }
         .rotate-chevron {
             transform: rotate(180deg);
+        }
+        /* Sidebar watermark with logo */
+        .sidebar-panel::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 35%, rgba(30, 58, 138, 0.08), transparent 55%);
+            pointer-events: none;
+            z-index: 0;
+        }
+        .sidebar-panel::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('logo.png') center 32% / 180px no-repeat;
+            opacity: 0.12;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .sidebar-panel > * {
+            position: relative;
+            z-index: 1;
         }
 
         .timeline-line {
@@ -204,7 +228,7 @@
         <!-- Sidebar Footer -->
         <div class="absolute bottom-0 left-0 w-full p-6 border-t border-slate-100 bg-slate-50">
             <div class="flex items-center gap-3">
-                <div class="w-10 h-10 bg-white border border-slate-200 rounded-full flex items-center justify-center text-chakraBlue font-bold shadow-sm">M</div>
+                <img src="logo.png" alt="Mentoring Bharat" class="w-10 h-10 object-contain bg-white rounded-md border border-slate-200 p-1 shadow-sm">
                 <div>
                     <p class="text-sm font-bold text-slate-900">Mentoring Bharat</p>
                     <p class="text-xs text-slate-500">Alumni Support Group</p>
@@ -502,7 +526,7 @@
             <div class="grid md:grid-cols-3 gap-8 mb-8">
                 <div>
                     <div class="flex items-center gap-2 mb-4">
-                        <div class="w-8 h-8 bg-gradient-to-r from-saffron via-white to-indiaGreen rounded-md flex items-center justify-center text-chakraBlue font-bold border border-white/20">M</div>
+                        <img src="logo.png" alt="Mentoring Bharat" class="w-10 h-10 object-contain bg-white rounded-md border border-white/10 p-1 shadow-sm">
                         <span class="font-serif font-semibold text-lg text-white">Mentoring Bharat</span>
                     </div>
                     <p class="text-sm leading-relaxed">
